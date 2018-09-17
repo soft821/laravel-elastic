@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html ng-app="inspinia">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- Page title set in pageTitle directive -->
+    <title state-title></title>
+    <!-- Google Open Sans -->
+
+    <link rel="icon" href="images/favicon.png?v=2" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- Font awesome -->
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Main Inspinia CSS files -->
+    <link href="styles/animate.css" rel="stylesheet">
+    <link href="bower_components/ng-tags-input/ng-tags-input.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css"/>
+    <link href="bower_components/footable/css/footable.core.css" rel="stylesheet">
+    <link href="bower_components/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+    <link href="bower_components/chosen/chosen.css" rel="stylesheet">
+    <link href="bower_components/select2/select2.css" rel="stylesheet">
+
+    <link href="bower_components/angular-ui-select/dist/select.css">
+    <link href="bower_components/spectrum/spectrum.css" rel="stylesheet">
+    <link href="bower_components/chosen/chosen.css" rel="stylesheet">
+    <link href="bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css"
+          rel="stylesheet">
+    <link href=" bower_components/angular-bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css"/>
+    <link href="bower_components/iCheck/skins/minimal/_all.css" rel="stylesheet">
+    <link href="bower_components/iCheck/skins/square/_all.css" rel="stylesheet">
+    <link href="bower_components/iCheck/skins/flat/_all.css" rel="stylesheet">
+    <link href="bower_components/iCheck/skins/line/_all.css" rel="stylesheet">
+    <link href="bower_components/iCheck/skins/polaris/polaris.css" rel="stylesheet">
+    <link href="bower_components/iCheck/skins/futurico/futurico.css" rel="stylesheet">
+    <link href="bower_components/iCheck/skins/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bower_components/ang-accordion/css/ang-accordion.css">
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
+    <link href="bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css"
+          rel="stylesheet">
+    <link href="bower_components/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="bower_components/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
+    <link href="bower_components/flag-icon-css/css/flag-icon.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+    <link href="bower_components/angular-datepicker/dist/angular-datepicker.css" rel="stylesheet">
+    <link href="bower_components/angular-mapboxgl-directive/dist/angular-mapboxgl-directive.css">
+    <!-- <link href="bower_components/angular-wizard/dist/angular-wizard.min.css" rel="stylesheet"> -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,angular}) styles/style.css -->
+    <link href="styles/plugins/ui-select/select.min.css" rel="stylesheet">
+    <link href="styles/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="styles/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="styles/redactor/redactor.css" rel="stylesheet">
+    <link href="styles/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="styles/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+    <link href="styles/plugins/touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+
+
+    <link href="styles/style.css" rel="stylesheet">
+    <!-- endbuild -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css'
+          rel='stylesheet'/>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css'
+          rel='stylesheet'/>
+
+
+
+</head>
+<!-- ControllerAs syntax -->
+<!-- Main controller with several data used in Inspinia theme on diferent view -->
+
+<body ng-controller="MainController as main" class="body-small">
+
+<!-- Main view  -->
+
+
+<div id="wrapper" class="gray-bg" ng-class="!currentUser || !isSideBar? 'top-navigation':''">
+
+    <div ng-include="'views/common/navigation_full_height.html'" ng-show="currentUser && isSideBar"></div>
+    <!-- Page wraper -->
+
+    <div ng-if="isLoading" class="loadingDiv text-center">
+        <div class="vertical-center position-fix">
+            <div>
+                <div class="sk-spinner sk-spinner-three-bounce">
+                    <div class="sk-bounce1"></div>
+                    <div class="sk-bounce2"></div>
+                    <div class="sk-bounce3"></div>
+                </div>
+                <br>
+                <h1 class="text-green" style="color: #1ab394 !important;">Please wait ...</h1>
+            </div>
+        </div>
+    </div>
+    <div id="page-wrapper" ng-class="isBackgroundLight?'light-gray-bg':'white-bg'">
+        <!-- Main view  -->
+        <div ng-controller="TopNavigationBarController">
+            <div ng-include="'views/common/top_navigation_bar.html'" ng-show="currentUser && isSideBar"></div>
+        </div>
+        <div ui-view ng-if="!isLoading">
+        </div>
+
+        <!-- Footer -->
+        <div ng-if="!isSideBar" ng-include="'views/common/footer_sec.html'"></div>
+        <!--<div ng-if="isSideBar && !editing" ng-include="'views/common/footer.html'"></div>-->
+    </div>
+    <!-- End page wrapper-->
+</div>
+<div login-dialog ng-if="!isLoginPage"></div>
+<!-- pusher-js -->
+<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
+
+<script>
+    window.client = new Pusher('d9fcc5a4b208b1a4cde7', {
+        cluster: 'eu',
+        encrypted: true
+    });
+</script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<!-- build:js(.) scripts/vendor.js -->
+<!-- jQuery and Bootstrap -->
+<script src="bower_components/core.js/client/core.js"></script>
+<script src="bower_components/es6-promise/es6-promise.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/jquery-mask-plugin/dist/jquery.mask.js"></script>
+<!-- MetsiMenu -->
+<script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- Peace JS -->
+<script src="bower_components/PACE/pace.min.js"></script>
+<!-- Angular scripts-->
+<script src="bower_components/angular/angular.js"></script>
+
+
+<!-- Angular Dependiences -->
+<script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+<script src="bower_components/datatables/media/js/dataTables.bootstrap.js"></script>
+<script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+<script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+<script src="bower_components/momentjs/min/moment.min.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/momentjs/min/locales.min.js"></script>
+<script src="bower_components/humanize-duration/humanize-duration.js"></script>
+<script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="bower_components/footable/dist/footable.all.min.js"></script>
+<script src="bower_components/dropzone/downloads/dropzone.js"></script>
+<script src="bower_components/jquery-circle-progress/dist/circle-progress.min.js"></script>
+<script src="bower_components/polyfill-customevent/customEvent.js"></script>
+<script src="bower_components/mustache.js/mustache.js"></script>
+<script type="text/javascript" src="bower_components/satellizer/dist/satellizer.js"></script>
+
+<script src="bower_components/fabric.js/dist/fabric.min.js"></script>
+<script src="bower_components/ngSweetAlert2/SweetAlert.js"></script>
+<script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
+<script src="bower_components/spectrum/spectrum.js"></script>
+<script src="bower_components/chosen/chosen.jquery.min.js"></script>
+<script src="bower_components/iCheck/icheck.min.js"></script>
+<script src="bower_components/sweetalert2/dist/sweetalert2.js"></script>
+<script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
+
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript"
+        src="bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
+<script src="bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js"></script>
+<script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-flash/dist/angular-flash.js"></script>
+<script src="bower_components/angular-payments/lib/angular-payments.js"></script>
+<script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+<script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+<script src="bower_components/ng-idle/angular-idle.js"></script>
+<script src="bower_components/angular-footable/dist/angular-footable.js"></script>
+<script src="bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="bower_components/angular-chosen-localytics/chosen.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.js"></script>
+<script src="bower_components/ng-page-title/dist/ng-page-title.js"></script>
+<script src="bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
+<script src="bower_components/ngDraggable/ngDraggable.js"></script>
+<script src="bower_components/angular-file-model/angular-file-model.js"></script>
+<script src="bower_components/angular-localization/angular-localization.js"></script>
+<script src="bower_components/angular-datepicker/dist/angular-datepicker.js"></script>
+<script type="text/javascript" src="bower_components/ang-accordion/js/ang-accordion.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-event/dist/event.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-map/ui-map.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-sortable/sortable.js"></script>
+<script type="text/javascript" src="bower_components/angular-clipboard/angular-clipboard.js"></script>
+<script type="text/javascript" src="bower_components/angular-peity/angular-peity.js"></script>
+<script src="bower_components/angular-toArrayFilter/toArrayFilter.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
+<script src="bower_components/ng-scroll-glue/dist/ng-scroll-glue.js"></script>
+<script src="bower_components/ng-pdfviewer/ng-pdfviewer.js"></script>
+<script src="bower_components/ng-pdfviewer/lib/pdf.js"></script>
+<script src="bower_components/ng-onload/release/ng-onload.js"></script>
+<script src="bower_components/angular-base64/angular-base64.js"></script>
+<script src="bower_components/angular-filter-count-to/src/angular-filter-count-to.js"></script>
+<script src="bower_components/angular-file-saver/dist/angular-file-saver.bundle.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/pusher-angular/lib/pusher-angular.min.js"></script>
+<script src="bower_components/angular-progress-arc/angular-progress-arc.js"></script>
+<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-stripe/release/angular-stripe.js"></script>
+<script src="bower_components/angular-mapboxgl-directive/dist/angular-mapboxgl-directive.js"></script>
+
+<!-- <script src="bower_components/angular-wizard/dist/angular-wizard.min.js"></script> -->
+
+
+<!-- endbuild -->
+
+<!-- build:js({.tmp,angular}) scripts/scripts.js -->
+<!-- Custom and plugin javascript -->
+<script src="scripts/plugins/ui-select/select.min.js"></script>
+<script src="scripts/plugins/peity/jquery.peity.min.js"></script>
+<script src="scripts/plugins/peity/angular-peity.js"></script>
+<script src="scripts/plugins/download.js"></script>
+<script src="scripts/plugins/jquerysteps/jquery.steps.min.js"></script>
+
+<script src="scripts/plugins/clockpicker/clockpicker.js"></script>
+<script src="scripts/plugins/multiselect/isteven-multi-select.js"></script>
+<script src="scripts/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+<script src="scripts/plugins/geo-viewport.js"></script>
+
+
+<!-- Anglar App Script -->
+<script src="scripts/app.js"></script>
+<script src="scripts/api.js"></script>
+<script src="scripts/config.js"></script>
+
+
+<script src="scripts/directives/programmeTable.js"></script>
+<script src="scripts/directives/clockPicker.js"></script>
+<script src="scripts/directives/dependencies/dynamicRect.js"></script>
+<script src="scripts/directives/canvasEditor.js"></script>
+<script src="scripts/directives/formBuilder.js"></script>
+<script src="scripts/directives/stopWatch.js"></script>
+<script src="scripts/directives/datePicker.js"></script>
+<script src="scripts/directives/touchSpin.js"></script>
+<script src="scripts/directives/stripeConnect.js"></script>
+<script src="scripts/directives/calendar.js"></script>
+<script src="scripts/directives/map.js"></script>
+<script src="scripts/directives.js"></script>
+
+
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/register.js"></script>
+<script src="scripts/controllers/loginPopUp.js"></script>
+<script src="scripts/countries.js"></script>
+<script src="scripts/controllers/registerConfirmation.js"></script>
+<script src="scripts/controllers/profile.js"></script>
+<script src="scripts/controllers/userManagements.js"></script>
+<script src="scripts/controllers/admin/userManagement.js"></script>
+<script src="scripts/controllers/registerByInvite.js"></script>
+<script src="scripts/controllers/forgetPassword.js"></script>
+<script src="scripts/controllers/deleteConfirmation.js"></script>
+<script src="scripts/controllers/routeManagement.js"></script>
+<script src="scripts/controllers/admin/menuManagement.js"></script>
+<script src="scripts/controllers/topNavigationBar.js"></script>
+
+<script src="scripts/controllers/user/bill.js"></script>
+
+<script src="scripts/controllers/menus.js"></script>
+<script src="scripts/controllers/admin/paymentsManagement.js"></script>
+<script src="scripts/controllers/admin/paymentsSettings.js"></script>
+<script src="scripts/controllers/admin/userCreate.js"></script>
+<script src="scripts/controllers/admin/userEdit.js"></script>
+<script src="scripts/controllers/admin/photos.js"></script>
+<script src="scripts/controllers/admin/photosEdit.js"></script>
+<script src="scripts/controllers/admin/photosCreate.js"></script>
+<script src="scripts/controllers/admin/places.js"></script>
+<script src="scripts/controllers/admin/placesEdit.js"></script>
+<script src="scripts/controllers/admin/roleUser.js"></script>
+
+<script src="scripts/controllers/admin/confirmationModal.js"></script>
+
+<script src="scripts/controllers/user/fileModal.js"></script>
+<script src="scripts/controllers/user/userFileUpload.js"></script>
+<script src="scripts/controllers/admin/userGroup.js"></script>
+<script src="scripts/controllers/admin/groupModal.js"></script>
+<script src="scripts/controllers/editCreditCard.js"></script>
+<script src="scripts/controllers/changeDefaultCreditCard.js"></script>
+<script src="scripts/controllers/user/chat.js"></script>
+
+<script src="scripts/controllers.js"></script>
+
+
+<script src="scripts/service/abstractFactory.js"></script>
+<script src="scripts/service/localStorage.js"></script>
+<script src="scripts/service/menuService.js"></script>
+<script src="scripts/service/loginService.js"></script>
+<script src="scripts/service/authService.js"></script>
+<script src="scripts/service/userService.js"></script>
+<script src="scripts/service/routeManagementService.js"></script>
+<script src="scripts/service/menuManagementService.js"></script>
+<script src="scripts/service/menusService.js"></script>
+<script src="scripts/service/user/paymentService.js"></script>
+<script src="scripts/service/user/roleUserService.js"></script>
+<script src="scripts/service/user/paymentMethod.js"></script>
+<script src="scripts/service/user/photos.js"></script>
+<script src="scripts/service/user/places.js"></script>
+<script src="scripts/service/user/programmeGroupsService.js"></script>
+
+<script src="scripts/service/user/chatService.js"></script>
+
+
+<!-- endbuild -->
+
+</body>
+
+</html>

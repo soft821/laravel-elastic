@@ -1,0 +1,23 @@
+{
+  "dashboard": "Dashboard",
+  "createCompany": "Create a Company",
+  "editCompany": "Edit a Company",
+  "viewYourInvoices": "View your Invoices",
+  "viewBillingInformation": "View Billing Information",
+  "subscriptions": "Subscriptions",
+  "uploadCase": "Upload a case",
+  "viewCases": "View Cases",
+  "viewDebtors": "View Debtors",
+  "viewDocument": "View Document",
+  "login": "Login",
+  "register": "Register",
+  "forgotPassword": "Forgot Password",
+  "registerConfirmation": "Register Confirmation",
+  "caseDetails": "Case Details",
+  "profile": "Profile",
+  "billingInformation": "Billing Information",
+  "routeManagement": "Route Management",
+  "menuManagement": "Menu Management",
+  "menus": "Menus",
+  "salesFiles": "Sales Files"
+}

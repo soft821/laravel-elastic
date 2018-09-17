@@ -1,0 +1,17 @@
+{
+  "username": "Username",
+  "email": "Enter Username",
+  "password": "Password",
+  "login": "Login",
+  "forgotPassword": "Forgot Password",
+  "RetrieveNewPassword": "Get a new password",
+  "doNotHaveAnAccount": "Do not have an account yet?",
+  "rememberLogin": "Remember login",
+  "forgotPasswordHeader": "Forgot password",
+  "forgotPasswordContent": "Enter your email and you will receive a new password.",
+  "or": "or",
+  "Send": "Send",
+  "goBackToLogin": "Go back to log in",
+  "createAnAccount": "Get a free account",
+  "PleaseLoginToContinue": "Log in to your account to continue"
+}

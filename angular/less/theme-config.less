@@ -1,0 +1,164 @@
+/*
+ *
+ *   This is style for skin config
+ *   Use only in demo theme
+ *
+*/
+
+.div-config {
+  position: fixed;
+  top: 200px;
+  right: 0px;
+  overflow: hidden;
+  z-index: 999999;
+
+}
+
+.div-config-box {
+  margin-right: -220px;
+  position: relative;
+  z-index: 9999999;
+  transition-duration: 0.8s;
+
+}
+
+.div-config-scroll {
+  height: 275px;
+  overflow-y: auto
+}
+
+.div-config-box.show {
+  margin-right: 0px;
+}
+
+.labelTextEditor {
+  font-size: 12px;
+}
+
+.div-config-box .fr-counter {
+
+  display: none !important;
+}
+
+.div-config-box .fr-toolbar::after {
+  display: inline !important;
+  clear: none !important;
+
+}
+
+.div-config-box .fr-toolbar {
+
+  padding: 0px !important;
+}
+
+.div-config-box .fr-toolbar.fr-top {
+  top: 0px !important;
+  width: 45px !important;
+  height: 45px !important;
+  display: inline !important;
+
+}
+
+.otherEditor {
+  height: 45px !important;
+  width: 45px !important;
+  display: inline !important;
+}
+
+.div-config-box .fr-box.fr-basic.fr-top .fr-wrapper {
+  height: 0px !important;
+}
+
+.spin-icon {
+  background: @navy;
+  position: absolute;
+  padding: 7px 10px 7px 13px;
+  border-radius: 20px 0px 0px 20px;
+  font-size: 16px;
+  top: 0;
+  left: 0px;
+  width: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.skin-setttings {
+  width: 300px;
+  margin-left: 40px;
+  background: @gray;
+}
+
+.skin-setttings .title {
+  background: #efefef;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  padding: 10px 15px;
+  font-size: 12px;
+}
+
+.setings-item {
+  padding: 10px 30px;
+}
+
+.center {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.setings-item.skin {
+  text-align: center;
+}
+
+.setings-item .switch {
+  float: right;
+}
+
+.skin-name a {
+  text-transform: uppercase;
+}
+
+.setings-item a {
+  color: #fff;
+}
+
+.default-skin, .blue-skin, .ultra-skin, .yellow-skin {
+  text-align: center;
+}
+
+.default-skin {
+  font-weight: 600;
+  background: #3EBFB6;
+}
+
+.default-skin:hover {
+  background: #199d82;
+}
+
+.blue-skin {
+  font-weight: 600;
+  background: url("patterns/header-profile-skin-1.png") repeat scroll 0 0;
+}
+
+.blue-skin:hover {
+  background: #0d8ddb;
+}
+
+.yellow-skin {
+  font-weight: 600;
+  background: url("patterns/header-profile-skin-3.png") repeat scroll 0 100%;
+}
+
+.yellow-skin:hover {
+  background: #ce8735;
+}
+
+.ultra-skin {
+  font-weight: 600;
+  background: url("patterns/header-profile-skin-2.png") repeat scroll 0 0;
+}
+
+.ultra-skin:hover {
+  background: #1a2d40;
+}

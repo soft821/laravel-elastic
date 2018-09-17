@@ -1,0 +1,16 @@
+{
+  "privateIndividual": " Private Individual",
+  "company": "Company",
+  "email": "Email",
+  "call": "Call",
+  "edit": "Edit",
+  "debtor": "Debtor",
+  "type": "type",
+  "socialSecurityNumber": "Social Security Number",
+  "vatNumber": "VAT Number",
+  "phoneNumber": "Phone Number",
+  "address": "Address",
+  "city": "City",
+  "zip": "Zip",
+  "added": "Added"
+}

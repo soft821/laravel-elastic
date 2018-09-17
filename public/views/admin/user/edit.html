@@ -1,0 +1,40 @@
+<div class="row wrapper border-bottom white-bg page-heading"> <div class="col-lg-10"> <h2>User Edit</h2> </div> <div class="row"> <div class="ibox product-detail"> <div class="ibox-content"> <div class="row"> <div class="col-md-12"> <div class="tabs-container tab"> <tabset> <tab> <tab-heading> <!--<i class="fa fa-pencil-square-o"></i> --> Info </tab-heading> <div class="panel-body"> <form class="m-t" role="form" name="myForm"> <div class="row"> <div class="col-md-6"> <p class="cont">CONTACT DETAILS</p> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"> <input name="first_name" type="text" alphabets class="form-control input-sm" placeholder="First Name" required ng-model="entity.first_name" tooltip-placement="top" tooltip="First Name"> </div> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"> <input name="first_name" type="text" alphabets class="form-control input-sm" placeholder="Last Name" required ng-model="entity.last_name" tooltip-placement="top" tooltip="Last Name"> </div> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"> <input type="email" placeholder="Email Address" ng-pattern="emailFormat" class="form-control input-sm" name="email" ng-model="entity.email" tooltip-placement="top" tooltip="Email" required> <div class="m-t-xs" ng-show="myForm.email.$invalid && myForm.email.$dirty && myForm.email.$error.pattern"> <small class="text-danger error" ng-show="myForm.email.$error"> Please input a valid email address </small> </div> </div> <div class="form-group"> <div class="" ng-class="windowWidth > 992 ? 'big-placeholder' : ''" ng-class="{'has-error': myForm.phoneNumber.$invalid && myForm.phoneNumber.$touched, 'has-success': credentials_form.phoneNumber.$valid}"> <input tooltip-placement="top" tooltip="Mobile" type="text" class="form-control input-sm" data-mask="(999) 999-9999" placeholder="Mobile" ng-model="entity.mobile" name="phoneNumber"> <!--<span class="help-block">(999) 999-9999</span>--> <span class="help-block text-danger" ng-show="myForm.phoneNumber.$invalid && myForm.phoneNumber.$touched"> <span class="help-block text-danger" ng-show="myForm.phoneNumber.$invalid && myForm.phoneNumber.$touched"> Invalid </span> </span> <span class="text-danger"></span> </div> </div> <select ng-model="entity.role_id" ng-options="s.id as s.name for s in userRoles" class="form-control"> <option value=""> Select User Type </select> </div> <div class="sec col-md-5 col-md-offset-0"> <div class="form-group"> <input type="text" alphabets class="form-control input-sm" placeholder="Street" ng-model="entity.street"> </div> <div class="form-group"> <input type="text" alphabets class="form-control input-sm" placeholder="City" ng-model="entity.city"> </div> <div class="form-group"> <input type="text" class="form-control input-sm" placeholder="Postal Code" name="zip_code" ng-model="entity.zip_code" ng-pattern="/^[0-9]{4,4}$/" ng-minlength="4" ng-maxlength="4"> <span class="error text-danger" ng-show="myForm.zip_code.$dirty && myForm.zip_code.$error.pattern &&
+                                                               (myForm.zip_code.$error.minlength || myForm.zip_code.$error.maxlength)"> Only Numbers and maximum 4 numbers allowed</span> </div> <select ng-model="entity.country" ng-options="s.name as s.name for s in countries" class="form-control"> <option value=""> Select country </select> <br> <div class="col-md-6"> <button class="btn btn-primary btn-sm" ng-click="change=!change"> {{'common.changePassword'|i18n}} </button> </div> <br> <div ng-show="change"> <div class="form-group"> <div ng-class="myForm.password.$error.minlength ?'has-error':''"> <br> <input type="password" name="password" placeholder="{{'common.password'|i18n}}" id="password" class="form-control" ng-model="entity.password" ng-minlength="8" required> <span class="error" ng-show="myForm.password.$error.minlength"> <span class="help-block text-danger"> <i class="fa fa-warning"></i>{{'common.tooShort'|i18n}}</span> </span> <b class="tooltip tooltip-bottom-right">{{'common.doNotForgetYourPassword'|i18n}}</b> </div> </div> <div class="form-group"> <div ng-class="myForm.passwordConfirm.$error.pwmatch ?'has-error':''"> <br> <input type="password" name="passwordConfirm" placeholder="{{'common.confirmPassword'|i18n}}" class="form-control" ng-model="passwordConfirm" pw-check="password"> <span class="error" ng-show="myForm.passwordConfirm.$error.pwmatch"> <span class="help-block text-danger"> <i class="fa fa-warning"></i> {{'common.passwordDoesNotMatch'|i18n}}</span> </span> </div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-md-12"> <div class="form-group"> <button id="profileChange" class="btn btn-primary btn-sm userUpdate" ng-click="updateUser()">Save Changes </button> <a ng-href="/#/admin/user/management/clients" class="btn btn-sm btn-warning">Cancel</a> </div> </div> </div> </form> </div> </tab> <!-- <tab>
+                                    <tab-heading>
+                                        <i class="fa fa-pencil-square-o"></i>
+                                        Group Types
+                                    </tab-heading>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div ng-show="group_types.length == 0" class="text-center">
+                                                    <div colspan="5">No results</div>
+                                                </div>
+                                                <div ng-repeat="type in availableTypes">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <h3 class="col-md-12">{{type.label}}</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div ng-repeat="entity in groupTypes | filter: {blob_type_id:type.id }"
+                                                             class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>
+                                                                    <input ng-change="enableGroupType(entity)"
+                                                                           ng-disabled="entity.is_system == 0"
+                                                                           type="checkbox"
+                                                                           icheck
+                                                                           ng-model="entity.isEnabled" name=""
+                                                                           value="true">&nbsp;
+                                                                    {{entity.group_name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="border-1" ng-show="!$last">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab> --> </tabset> </div> </div> </div> </div> </div> </div> <div class="col-lg-2"> </div> </div>

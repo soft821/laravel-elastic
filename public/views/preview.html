@@ -1,0 +1,1502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-AU" lang="en-AU"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <title>Form</title> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width"> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> <!--[if (lt IE 9)|(gt IE 10) ]>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic"
+          rel="stylesheet" type="text/css"/><![endif]--> <!--[if !IE]><!--> <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css"><!--<![endif]--> <link rel="stylesheet" type="text/css" href="https://static.qgov.net.au/assets/v2/style/qgov.css" media="all"> <!--[if lt IE 9]>
+    <link rel="stylesheet" href="https://static.qgov.net.au/assets/v2/style/qgov-ie.css" type="text/css" media="all"/>
+    <![endif]--> <!-- layout-small is assumed by default (combined with qgov.css) --> <link href="https://static.qgov.net.au/assets/v2/style/layout-medium.css" media="only all and (min-width: 640px) and (max-width: 980px)" rel="stylesheet" type="text/css"> <link href="https://static.qgov.net.au/assets/v2/style/layout-large.css" media="only all and (min-width: 980px)" rel="stylesheet" type="text/css"> <link rel="shortcut icon" href="https://static.qgov.net.au/assets/v2/images/skin/favicon.ico"> <meta prefix="og:http://ogp.me/ns#" property="og:image" content="https://static.qgov.net.au/assets/v2/images/skin/qg-coa-ogp.png"> <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/"> <link rel="schema.AGLSTERMS" href="http://www.agls.gov.au/agls/terms/"> <meta name="DCTERMS.title" content="Search results | Queensland Government"> <meta name="DCTERMS.created" content="2011-11-22"> <meta name="DCTERMS.modified" content="2015-02-20"> <meta name="DCTERMS.title" content="Search results | Queensland Government"> <!--<meta name="DCTERMS.description" content="DESCRIPTION" />--> <meta name="DCTERMS.subject" scheme="AGLSTERMS.APAIS" content="SUBJECT"> <meta name="DCTERMS.function" scheme="AGLSTERMS.AGIFT" content="FUNCTION"> <meta name="DCTERMS.identifier" scheme="DCTERMS.URI" content="http://www.qld.gov.au/search/"> <meta name="DCTERMS.type" scheme="DCTERMS.DCMIType" content="Text"> <meta name="AGLSTERMS.documentType" scheme="AGLSTERMS.agls-document" content="index"> <meta name="DCTERMS.audience" scheme="AGLSTERMS.agls-audience" content=""> <meta name="DCTERMS.jurisdiction" scheme="AGLSTERMS.AglsJuri" content="Queensland"> <link rel="stylesheet" href="https://static.qgov.net.au/assets/v2/style/qgov-misc.css"> <style>/* QUERY COMPLETION - Uses jquery-ui */
+
+        .ui-helper-hidden-accessible,
+        .ui-helper-hidden {
+            display: none;
+        }
+
+        ul.ui-autocomplete {
+            font-family: 'Arial';
+            background: white;
+            text-align: left;
+            border: solid 1px #bbbbdd;
+            list-style-type: none;
+            padding: 0px;
+            margin: 0;
+            width: 385px;
+            position: absolute;
+        }
+
+        ul.ui-autocomplete li.ui-autocomplete-category {
+            font-size: small;
+            background-color: #efefef;
+            padding: 5px;
+        }
+
+        ul.ui-autocomplete li.ui-menu-item {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.ui-autocomplete li.ui-menu-item a {
+            display: block;
+            padding: 3px;
+            cursor: pointer;
+        }
+
+        ul.ui-autocomplete li.ui-menu-item a.description,
+        ul.ui-autocomplete li.ui-menu-item a.url {
+            padding-top: 0px;
+        }
+
+        ul.ui-autocomplete li.ui-menu-item span {
+            display: block;
+            font-size: small;
+            padding-left: 10px;
+        }
+
+        ul.ui-autocomplete li.ui-menu-item a.ui-state-focus {
+            background-color: #efefff;
+        }
+
+        .search-result p, .featured-search-result p {
+            margin: 0;
+        }
+
+        .search-result, .featured-search-result {
+            padding-left: 3em;
+            padding-bottom: 0.5em;
+        }
+
+        .search-result .url, .featured-search-result .url {
+            color: #006621;
+            display: inline;
+        }
+
+        .search-result h3, .featured-search-result h3 {
+            font-weight: normal;
+            margin: 1em 0 0 0;
+        }
+
+        .btn {
+            white-space: normal;
+        }
+
+        a.btn {
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #3272B2;
+        }
+
+        h1:focus {
+            outline: none;
+            color: #115289;
+        }
+
+        .control-label {
+            font-weight: bold;
+        }
+
+        form legend {
+            border-bottom: none;
+            float: left;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        legend {
+            border-bottom: none;
+            float: left;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .caret-list {
+            list-style-image: url('../images/icons/caret-right-black.png');
+            padding-left: 16px;
+        }
+
+        .caret-list li {
+            margin-bottom: 5px;
+        }
+
+        .has-error {
+            color: #a94442;
+        }
+
+        fieldset {
+            border-bottom: 1px solid #e5e5e5;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-bottom: none;
+        }
+
+        label {
+            font-weight: normal;
+        }
+
+        form label {
+            display: inline-block;
+        }
+
+        .btn-lg, .btn-group-lg > .btn {
+            padding: 10px 16px;
+            font-size: 18px;
+            border-radius: 4px;
+        }
+
+        .radio-inline, .checkbox-inline {
+            margin-right: 10px;
+        }
+
+        /
+        /
+        NOTE: Imported directly from SWE2
+        .status {
+            margin: 0.5em 0 0.5em 4em;
+            padding: 1em 2em;
+            background: #EEF4F6;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .status:before {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            margin-left: -2.4em;
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            color: #000000;
+            padding: 0.4em;
+        }
+
+        /* status in butterfly lightbox */
+        #jb-window .status {
+            margin: 0;
+        }
+
+        .status h2 {
+            margin-top: 0;
+        }
+
+        .info, .status {
+            background-color: #EEF4F6;
+            color: #000000;
+            clear: both;
+        }
+
+        .info:before, .status:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: inherit;
+            background: inherit;
+            color: #000;
+        }
+
+        .info:hover:before, .status:hover:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: none;
+            background: inherit;
+            color: #000;
+        }
+
+        .info:before, .info:hover:before, .status:before, .status:hover:before {
+            background: #EEF4F6;
+            color: #759BF3;
+        }
+
+        .success-step {
+            background-color: #EEF4F6;
+            color: #000000;
+        }
+
+        .success-step:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: inherit;
+            background: inherit;
+            color: #000;
+        }
+
+        .success-step:hover:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: none;
+            background: inherit;
+            color: #000;
+        }
+
+        .success-step:before, .success-step:hover:before {
+            background: #EEF4F6;
+            color: #759BF3;
+        }
+
+        .success {
+            background-color: #F2F7EA;
+            color: #000000;
+        }
+
+        .success:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: inherit;
+            background: inherit;
+            color: #000;
+        }
+
+        .success:hover:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: none;
+            background: inherit;
+            color: #000;
+        }
+
+        .success:before, .success:hover:before {
+            background: #F2F7EA;
+            color: #9CBF6D;
+        }
+
+        .warn {
+            background-color: #FFEDDE;
+            color: #000000;
+        }
+
+        .warn:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: inherit;
+            background: inherit;
+            color: #000;
+        }
+
+        .warn:hover:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: none;
+            background: inherit;
+            color: #000;
+        }
+
+        .warn:before, .warn:hover:before {
+            background: #FFEDDE;
+            color: #f8ae70;
+        }
+
+        .fail {
+            background-color: #FEECEF;
+            color: #000000;
+        }
+
+        .fail:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: inherit;
+            background: inherit;
+            color: #000;
+        }
+
+        .fail:hover:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: none;
+            background: inherit;
+            color: #000;
+        }
+
+        .fail:before, .fail:hover:before {
+            background: #FEECEF;
+            color: #EA6A7E;
+        }
+
+        div.download {
+            background-color: #F5EBDC;
+            color: #000000;
+        }
+
+        div.download:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: inherit;
+            background: inherit;
+            color: #000;
+        }
+
+        div.download:hover:before {
+            display: inline-block;
+            font-family: FontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 1;
+            padding-right: 16px;
+            padding-right: 1rem;
+            content: "";
+            text-decoration: none;
+            background: inherit;
+            color: #000;
+        }
+
+        div.download:before, div.download:hover:before {
+            background: #F5EBDC;
+            color: #AE8446;
+        }
+
+        .form > .xor {
+            margin: .5em 0;
+        }
+
+        ol.xor > li {
+            list-style: upper-alpha;
+            border-top: 1px solid #cccccc;
+            margin-top: 2em;
+            padding: 1.5em 0 0;
+        }
+
+        ol.xor > li > h2 {
+            margin-top: 0;
+        }
+
+        ol.xor > li:first-child {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        ol.xor > li::before {
+            content: " or ";
+            font-weight: bold;
+            text-transform: capitalize;
+            background: transparent;
+            color: $ qg-blue;
+            position: absolute;
+            padding: .7em;
+            margin-top: -3em;
+            margin-left: -3em;
+        }
+
+        ol.xor > li:first-child::before {
+            content: none;
+        }
+
+        .qg-acc h3 {
+            margin: .7em 0;
+        }
+
+        #search-form button#search-button {
+            height: 2.3em;
+        }
+
+        .listbox, #tools .listbox {
+            background: #f9f9f9;
+            border: 1px solid #78BA00;
+            border-top: none;
+            margin-top: -1px;
+            /* overlap search box bottom border */
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .listbox li, #tools .listbox li {
+            padding: 0;
+            display: block;
+            float: none;
+            margin-top: 0;
+        }
+
+        .listbox a, #tools .listbox a {
+            white-space: nowrap;
+            /* override #tools a */
+            color: #0B2E4C;
+            padding: 0.5em 0.7em;
+        }
+
+        .listbox a:hover, #tools .listbox a:hover, .listbox a:focus, #tools .listbox a:focus, .listbox a.focus, #tools .listbox a.focus {
+            /* override #tools a */
+            background: #fff;
+            color: #939393;
+            border: none;
+        }
+
+        .listbox mark, #tools .listbox mark {
+            background: transparent;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        /* styling input widgets */
+        form button,
+        .button,
+        input[type=text],
+        input[type=password],
+        input[type=search],
+        input[type=email],
+        input[type=tel],
+        input[type=url],
+        input[type=date],
+        input[type=time],
+        input[type=datetime],
+        input[type=number],
+        select,
+        textarea {
+            background: #ffffff;
+            border: 1px solid #cccccc;
+            padding: .5em .7em;
+            max-width: 100%;
+            font-family: "Lato", Helvetica, Arial, sans-serif;
+        }
+
+        /* separate the :not() selector or the whole block is ignored in older browsers */
+        input:not([type]) {
+            font: inherit;
+            padding: .3em;
+            max-width: 90%;
+            background: #ffffff;
+            border: 1px solid #cccccc;
+        }
+
+        table form button,
+        table .button,
+        table input[type=text],
+        table input[type=password],
+        table input[type=search],
+        table input[type=email],
+        table input[type=tel],
+        table input[type=url],
+        table input[type=date],
+        table input[type=time],
+        table input[type=datetime],
+        table input[type=number],
+        table select,
+        table textarea {
+            padding: .2em .7em;
+        }
+
+        table input:not([type]) {
+            padding: .2em .7em;
+        }
+
+        .aside form button,
+        .aside .button,
+        .aside input[type=text],
+        .aside input[type=password],
+        .aside input[type=search],
+        .aside input[type=email],
+        .aside input[type=tel],
+        .aside input[type=url],
+        .aside input[type=date],
+        .aside input[type=time],
+        .aside input[type=datetime],
+        .aside input[type=number],
+        .aside select,
+        .aside textarea {
+            background: #ffffff;
+            border: 1px solid #cccccc;
+            padding: .5em .7em;
+            max-width: 90%;
+        }
+
+        .search {
+            clear: both;
+            position: relative;
+        }
+
+        .search input {
+            float: left;
+            padding: .45em;
+        }
+
+        .search input[type="search"] {
+            -webkit-appearance: none;
+        }
+
+        .search .lookup {
+            background: #666666;
+            border: 0 none;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0.2em 0.4em;
+            position: absolute;
+            right: 2.6em;
+            top: .85em;
+            z-index: 100;
+        }
+
+        .search .search-button {
+            float: none;
+        }
+
+        .search .results {
+            border-top: 1px solid #cccccc;
+            margin: 0.5em 0.5em 0 1em;
+            padding: 0.5em 0;
+        }
+
+        .search .section {
+            border-bottom: 0;
+        }
+
+        .search .all {
+            display: block;
+        }
+
+        textarea {
+            width: 90%;
+            max-width: 50em;
+            overflow: auto;
+        }
+
+        select {
+            overflow-x: hidden;
+        }
+
+        textarea.large-compact {
+            height: 4.5em;
+            -webkit-transition: height .3s ease-out;
+            -o-transition: height .3s ease-out;
+            transition: height .3s ease-out;
+        }
+
+        textarea.large-compact:focus {
+            height: 25em;
+        }
+
+        /* numbers */
+        .number td {
+            text-align: right;
+        }
+
+        #asides .questions input[type=text],
+        #asides .questions input[type=password],
+        #asides .questions input[type=search],
+        #asides .questions input[type=email],
+        #asides .questions input[type=tel],
+        #asides .questions input[type=url],
+        #asides .questions input[type=date],
+        #asides .questions input[type=time],
+        #asides .questions input[type=datetime],
+        #asides .questions input[type=number],
+        #asides .questions select {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 99%;
+            max-width: 99%;
+        }
+
+        #asides .questions .location {
+            padding-top: 0.2em;
+            padding-right: 3em;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #asides .questions .location:before, #asides .questions .location:after {
+            content: " ";
+            display: table;
+        }
+
+        #asides .questions .location:after {
+            clear: both;
+        }
+
+        #asides .questions .location input#location {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        #asides .questions .location input#location + #app-geocoding {
+            background: #78BA00;
+            position: absolute;
+            height: 2em;
+            right: 0;
+            margin: 0.05em 0 0;
+            padding: 0.15em 0.2em;
+            vertical-align: middle;
+        }
+
+        #asides .questions .location input#location + #app-geocoding:hover, #asides .questions .location input#location + #app-geocoding:focus {
+            background-color: #b1e455;
+            outline: 1px solid #78BA00;
+            outline-offset: -1px;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin: 0.75em 0;
+        }
+
+        /* disabled items */
+        .placeholder,
+        .disabled {
+            color: #777777;
+        }
+
+        input[disabled],
+        select[disabled],
+        textarea[disabled] {
+            background: transparent;
+            color: #777777;
+        }
+
+        input[readonly],
+        select[readonly],
+        textarea[readonly] {
+            color: #777777;
+        }
+
+        /* a form is a list of questions */
+        .questions {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .questions li {
+            clear: left;
+            position: relative;
+            padding: .5em 0 .7em;
+            /* padding-bottom +.3em to balance padding-top (accounting for line-height on text) */
+            list-style: none;
+            -webkit-transition: opacity 0.2s ease,
+            margin 0.2s ease,
+            padding 0.2s ease;
+            -o-transition: opacity 0.2s ease,
+            margin 0.2s ease,
+            padding 0.2s ease;
+            transition: opacity 0.2s ease,
+            margin 0.2s ease,
+            padding 0.2s ease;
+        }
+
+        .questions li[hidden] {
+            display: block;
+            max-height: 0;
+            opacity: 0;
+            margin: 0 !important;
+            padding: 0 !important;
+            -webkit-transition: none;
+            -o-transition: none;
+            transition: none;
+            position: absolute;
+        }
+
+        /* form footer */
+        .questions li.footer {
+            padding-bottom: .5em;
+        }
+
+        .sections li.footer {
+            padding: .5em;
+        }
+
+        /* form actions */
+        .actions, #asides .actions {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: .5em 0 0;
+            overflow: hidden;
+        }
+
+        .actions:before, .actions:after, #asides .actions:before, #asides .actions:after {
+            content: " ";
+            display: table;
+        }
+
+        .actions:after, #asides .actions:after {
+            clear: both;
+        }
+
+        .actions li,
+        .questions .actions li {
+            clear: none;
+            float: left;
+            display: inline-block;
+            list-style: none;
+            margin: 0 1em .5em 0;
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .actions input {
+            max-width: none;
+        }
+
+        /* link actions */
+        .actions :link,
+        .actions :visited {
+            color: #13578b;
+        }
+
+        /* question states */
+        .invalid .alert {
+            color: #F85C50;
+        }
+
+        .invalid > button,
+        .invalid > input,
+        .invalid > select,
+        .invalid > textarea {
+            border-color: #F85C50;
+            color: #F85C50;
+            font-weight: normal;
+        }
+
+        /* focus */
+        button.focus,
+        input.focus,
+        select.focus,
+        textarea.focus {
+            border-color: $ qg-blue;
+        }
+
+        /* form sections */
+        form .sections {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li.section {
+            border-bottom: 1px solid #cccccc;
+            margin: .5em 0;
+            padding: .5em 0;
+        }
+
+        li.section li.section {
+            border-bottom: none;
+            margin: .5em 0 0;
+            padding: .5em 0 0;
+        }
+
+        legend .h2,
+        legend .h3 {
+            display: block;
+            color: #000000;
+            font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            font-size: 150%;
+            /*margin: .83em 0;*/
+        }
+
+        legend .h3 {
+            font-size: 130%;
+            /*margin: 1em 0;*/
+        }
+
+        /* instructions */
+        .instructions p {
+            margin-top: 0;
+        }
+
+        /* group controls */
+        .questions > li.compact {
+            padding-top: 0;
+            padding-bottom: 0;
+            overflow: hidden;
+        }
+
+        .questions > li.group {
+            padding-bottom: 0;
+        }
+
+        .group > .questions > li,
+        .group > fieldset > .questions > li {
+            margin: 0;
+            background: transparent;
+        }
+
+        /* group labels */
+        .group .questions .label,
+        .group .questions abbr.required,
+        .group .questions abbr[title*="required"] {
+            font-size: 80%;
+        }
+
+        .group .questions abbr[title*="required"] {
+            font-size: 100%;
+        }
+
+        /* compact question layout */
+        .group > fieldset .compact li {
+            float: left;
+            clear: none;
+            margin-right: 1.5em;
+        }
+
+        /* prevent floated selects from truncating */
+        .group select {
+            max-width: 100%;
+        }
+
+        /* https://github.com/h5bp/html5-boilerplate/wiki/css */
+        fieldset {
+            border: none;
+            min-width: 0;
+            /* fix for iOS safari - fixes: elements withing fieldsets not scaling correctly */
+            width: 100%;
+            /* fix for iOS safari - fixes: elements withing fieldsets not scaling correctly */
+        }
+
+        legend {
+            margin: 0;
+            padding: 0;
+            white-space: normal;
+            width: 100%;
+            border: 0;
+            color: inherit;
+        }
+
+        /* labels and alerts */
+        label {
+            cursor: pointer;
+        }
+
+        .label,
+        .hint,
+        label .help,
+        legend .help,
+        .alert {
+            display: block;
+        }
+
+        /* help inside a hint inline */
+        label .hint .help,
+        legend .hint .help {
+            display: inline;
+        }
+
+        /* required fields */
+        abbr.required, abbr[title*="required"] {
+            color: #F85C50;
+            border-bottom: none;
+            text-decoration: none;
+        }
+
+        .questions abbr.required, .questions abbr[title*="required"] {
+            position: absolute;
+            margin-left: -1em;
+            width: 1em;
+            text-align: center;
+            top: .5em;
+        }
+
+        .questions abbr[title*="required"] {
+            position: absolute;
+            margin-left: -1em;
+            width: 1em;
+            text-align: center;
+            top: .5em;
+        }
+
+        /* radio buttons and checkboxes are choices */
+        .choices,
+        #asides .choices {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .questions .choices li {
+            padding: 0 0 0 20px;
+            margin: .3em 0;
+            background: transparent;
+            list-style: none;
+            border: none;
+        }
+
+        .choices li input {
+            position: absolute;
+            margin-left: -20px;
+            padding: 0;
+            /* IE8 needs this to remove earlier padding */
+            top: .3em;
+            /* helps Chrome, Firefox and Opera */
+        }
+
+        /* compact options layout */
+        .questions .compact > li {
+            float: left;
+            clear: none;
+            margin-right: 1.5em;
+        }
+
+        /* checked radio buttons/checkboxes */
+        input:checked + label {
+            font-weight: bold;
+            color: $ qg-blue;
+        }
+
+        .choices label {
+            position: relative;
+            padding-left: 20px;
+            margin-left: -20px;
+        }
+
+        /* data display */
+        .data dt {
+            font-weight: normal;
+            margin: 1em 0 .3em;
+        }
+
+        .data dd {
+            border: 1px solid #dbdbdb;
+            background: #f9f9f9;
+            margin: 0 0 1em;
+            position: relative;
+            padding: .5em .5em .7em;
+            /* padding-bottom +.3em to balance padding-top (accounting for line-height on text) */
+            min-height: 1em;
+            list-style: none;
+            word-wrap: break-word;
+        }
+
+        .tba dd {
+            background: transparent;
+            color: #777777;
+        }
+
+        .data dd a {
+            color: #444444;
+            text-decoration: none;
+        }
+
+        .data dd a:active,
+        .data dd a:hover {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        /* data to copy and paste */
+        .copypaste {
+            font-weight: normal;
+            font-size: 180%;
+        }
+
+        /* edit links */
+        .edit {
+            text-align: right;
+            margin: .5em 0;
+        }
+
+        /**
+         * Basic functionality styles for "Compact Form Labels"
+         * These styles assume that each form input/label pair are surrounded by a div with a class form-element.
+         * These styles need to be customised for the forms markup you are using.
+         */
+        .form-element,
+        #tools #search-form {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #search-form label.compact-label {
+            cursor: text;
+        }
+
+        label.compact-label {
+            position: absolute;
+            top: .15em;
+            left: .5em;
+            z-index: 1;
+            color: #666666;
+        }
+
+        /* printing forms */
+        @media print {
+            .actions button,
+            .actions .button,
+            .actions input,
+            .actions a {
+                display: none;
+            }
+        }
+
+        /* reseting overiding styles - for G.I. feedback */
+        #page-feedback form ul.actions {
+            margin-top: 0;
+            float: none;
+        }
+
+        /* buttons */
+        button,
+        .button,
+        input[type=button],
+        input[type=submit],
+        input[type=image],
+        input[type=reset] {
+            cursor: pointer;
+            pointer-events: auto;
+            border-radius: 0;
+        }
+
+        .button,
+        .button:link,
+        .button:visited,
+        .button:active,
+        .button:focus,
+        .button:hover,
+        #asides .button:visited {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* leave image buttons alone */
+        input[type=image] {
+            padding: 0;
+            max-width: none;
+            background: transparent;
+            border: none;
+        }
+
+        /* actions buttons */
+        form button,
+        .ui-button,
+        .ui-widget .ui-button,
+        .actions .button,
+        .poll .button,
+        .actions input,
+        #page-feedback form .actions input[type=submit] {
+            margin: 0;
+            line-height: 1.2;
+            padding: 1em 2em;
+            max-width: none;
+            font-weight: bold;
+            font-style: normal;
+            color: #ffffff;
+            background: #585E62;
+            border: none;
+            border-radius: 0;
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+        }
+
+        /* slimmer buttons in asides */
+        .aside button,
+        .aside .button,
+        .aside .ui-button,
+        .aside .actions input {
+            padding-top: .5em;
+            padding-bottom: .5em;
+        }
+
+        /* interaction states */
+        form button:hover,
+        form button:focus,
+        .ui-button:hover,
+        .ui-button:focus,
+        .ui-widget .ui-button:hover,
+        .ui-widget .ui-button:focus,
+        .actions .button:hover,
+        .actions .button:focus,
+        .poll .button:hover,
+        .poll .button:focus,
+        .actions input:hover,
+        .actions input:focus {
+            color: #000000;
+            background-color: #7d858a;
+            outline: 1px solid #585E62;
+            outline-offset: -1px;
+        }
+
+        .ui-button-icon-only:hover,
+        .ui-button-icon-only:focus,
+        .ui-widget .ui-button-icon-only:hover,
+        .ui-widget .ui-button-icon-only:focus {
+            outline: none;
+        }
+
+        form button:active,
+        .ui-button:active,
+        .ui-widget .ui-button:active,
+        .actions .button:active,
+        .poll .button:active,
+        .actions input:active {
+            background-color: #585E62;
+        }
+
+        /* primary action */
+        form strong button,
+        strong .ui-button,
+        .ui-widget strong .ui-button,
+        .actions strong .button,
+        .poll .button,
+        .actions strong input,
+        #page-feedback .actions strong input[type=submit] {
+            background-color: #78BA00;
+            color: #000000;
+        }
+
+        form strong button:hover,
+        form strong button:focus,
+        strong .ui-button:hover,
+        strong .ui-button:focus,
+        .ui-widget strong .ui-button:hover,
+        .ui-widget strong .ui-button:focus,
+        .actions strong .button:hover,
+        .actions strong .button:focus,
+        .poll .button:hover,
+        .poll .button:focus,
+        .actions strong input:hover,
+        .actions strong input:focus {
+            background-color: #b1e455;
+            outline: 1px solid #78BA00;
+            outline-offset: -1px;
+        }
+
+        form strong button:active,
+        strong .ui-button:active,
+        .ui-widget strong .button:active,
+        .actions strong .button:active,
+        .poll .button:active,
+        .actions strong input:active {
+            /* reverse gradient */
+            background-color: #78BA00;
+        }
+
+        /* alternate primary action */
+        form em button,
+        em .ui-button,
+        .ui-widget em .ui-button,
+        .actions em .button,
+        .actions em input {
+            background-color: $ qg-blue;
+            color: #ffffff;
+        }
+
+        form em button:hover,
+        form em button:focus,
+        em .ui-button:hover,
+        em .ui-button:focus,
+        .ui-widget em .ui-button:hover,
+        .ui-widget em .ui-button:focus,
+        .actions em .button:hover,
+        .actions em .button:focus,
+        .actions em input:hover,
+        .actions em input:focus {
+            color: #000000;
+            background-color: #9ac5df;
+            outline: 1px solid $ qg-blue;
+            outline-offset: -1px;
+        }
+
+        form em button:active,
+        em .ui-button:active,
+        .ui-widget em .ui-button:active,
+        .actions em .button:active,
+        .actions em input:active {
+            background-color: $ qg-blue;
+        }
+
+        /* disabled buttons */
+        .ui-button[disabled],
+        form button[disabled],
+        .poll .button[disabled],
+        form input[type="submit"][disabled] {
+            opacity: .35;
+            /* based on jquery UI .ui-state-disabled */
+            background: #585E62;
+            color: #ffffff;
+            cursor: default;
+        }
+
+        strong .ui-button[disabled],
+        .ui-widget strong .ui-button[disabled],
+        form strong button[disabled],
+        form strong input[type="submit"][disabled] {
+            background: #78BA00;
+            color: #000000;
+        }
+
+        em .ui-button[disabled],
+        .ui-widget em .ui-button[disabled],
+        form em button[disabled],
+        form em input[type="submit"][disabled] {
+            background: $ qg-blue;
+            color: #ffffff;
+        }
+
+        #search-button,
+        #search-button-primary {
+            background: #78BA00;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* NOTE: these selectors must be separate or the entire property block will be ignored
+        http://stackoverflow.com/questions/11459051/firefox-moz-placeholder-not-working */
+        /* placeholder colour in search fields */
+        #header ::-moz-placeholder,
+        #banner ::-moz-placeholder,
+        .search ::-moz-placeholder {
+            color: #666666;
+            opacity: 1;
+        }
+
+        #header ::-webkit-input-placeholder,
+        #banner ::-webkit-input-placeholder,
+        .search ::-webkit-input-placeholder {
+            color: #666666;
+        }
+
+        #header :-ms-input-placeholder,
+        #banner :-ms-input-placeholder,
+        .search :-ms-input-placeholder {
+            color: #666666;
+        }
+
+        #header .placeholdersjs,
+        #banner .placeholdersjs,
+        .search .placeholdersjs {
+            color: #666666;
+        }
+
+        /* hide placeholder on focus */
+        #header :focus::-moz-placeholder,
+        #banner :focus::-moz-placeholder,
+        :focus::-moz-placeholder {
+            opacity: 0;
+        }
+
+        :focus::-webkit-input-placeholder {
+            direction: ltr;
+            text-indent: -999px;
+        }
+
+        /*# sourceMappingURL=qg-forms.css.map */
+        label {
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        input, textarea, select, button {
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            margin: 0em;
+            font: 400 11px system-ui;
+        }
+
+        html {
+            font-size: 16px !important;
+        }
+
+        #meta-wrapper #post-page-options li.share {
+            width: 100%;
+        }
+
+        #fat-footer, #header .box-sizing, #nav-site .box-sizing, #page-container {
+            padding: 0px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+
+        input[type=date] {
+            margin-top: 20px;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        #asides {
+            padding-top: 0px;
+            width: 33%;
+            background: #fff;
+        }
+
+        ul li.feedback {
+            width: 50%;
+        }
+
+        #meta-wrapper #post-page-options li.share {
+            width: 50%;
+        }</style> <body id="qgov-au" class="page-search"> <!-- noindex --> <!--[if lt IE 9]>
+<script type="text/javascript">jQuery && jQuery.transformer({addClasses: true});</script><![endif]--> <div id="access"><h2>Skip links and keyboard navigation</h2> <ul> <li><a href="#content">Skip to content</a></li> <li id="access-instructions"><a href="https://www.qld.gov.au/help/accessibility/keyboard.html#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li> </ul> </div> <div id="header-wrapper"> <div id="header"> <div id="header-bg"></div> <div class="box-sizing"> <div class="max-width"><h2>Site header</h2> <div id="qg-coa"><a href="https://www.qld.gov.au/"> <!--[if gt IE 8]><!--><img src="https://static.qgov.net.au/assets/v2/images/skin/qg-coa.svg" width="287" height="50" alt="Queensland Government home"> <!--<![endif]--> <!--[if (lte IE 8)&(gt IE 6)]><img
+                        src="https://static.qgov.net.au/assets/v2/images/skin/qg-coa.png"
+                        width="287" height="50" alt="Queensland Government home"/>
+                    <![endif]--> <!--[if lte IE 6]><img
+                            src="https://static.qgov.net.au/assets/v2/images/skin/qg-coa-ie6.png"
+                            width="287" height="50" alt="Queensland Government home"/><![endif]--> <img src="https://static.qgov.net.au/assets/v2/images/skin/qg-coa-print.png" class="print-version" alt=""> </a></div> <div id="nav-site"> <ul> <li class="nav-residents"><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a> </li> </ul> </div> </div> </div> </div> </div> <!-- endnoindex --> <div id="page-container"> <div class="max-width"> <div id="breadcrumbs"><h2>You are here:</h2> <ol> <li class="nav-home"><a href="https://www.qld.gov.au/">Queensland Government home</a></li> </ol> </div> <div id="content-container"> <div id="content"> <div class="article"> <div class="box-sizing"> <div class="border"> {{{content}}}</div> </div> </div><!-- end .article, .box-sizing, .border --> </div><!-- end #content --> <div id="asides"> <div class="box-sizing"> <div class="border"> <div class="aside contact"> <div class="section-header"><h2>Contact</h2></div> <ul> <li class="telephone">General enquiries <span class="tel">13 QGOV (13 74 68)</span></li> </ul> </div> </div> </div> </div><!-- end #asides, .box-sizing, .border --> <div id="meta-wrapper"> <div class="meta-box-sizing"> <div class="border"> <div id="document-properties"></div> <!-- noindex --> <div id="post-page-options" class="page-options"> <ul> <li class="feedback"><a href="#page-feedback" class="button" id="page-feedback-useful">Feedback</a> </li> <li class="share"><h2>Share:</h2> <a class="facebook" href="https://www.qld.gov.au/share/?via=facebook&amp;title=Search results" title="Share using Facebook"><span>Facebook</span></a> <a class="twitter" href="https://www.qld.gov.au/share/?via=twitter&amp;title=Search results" title="Share using Twitter"><span>Twitter</span></a> <a class="linkedin" href="https://www.qld.gov.au/share/?via=linkedin&amp;title=Search results" title="Share using LinkedIn"><span>LinkedIn</span></a> <a class="share" href="https://www.qld.gov.au/share/?title=Search results" title="Share using another service&hellip;"><span>More</span></a></li> </ul> </div> </div> </div> </div><!-- end #meta-wrapper, .meta-box-sizing, .border --> </div><!-- end #content-container --> <div id="nav-section"> <div class="box-sizing"><h2><a href="//www.qld.gov.au/">Queensland Government</a></h2> <ul> <li><a href="//www.qld.gov.au/queenslanders/">Services for Queenslanders</a></li> <li><a href="http://www.business.qld.gov.au/">Business and industry</a></li> <li><a href="http://data.qld.gov.au/">data.qld.gov.au</a></li> <li><a href="//www.qld.gov.au/announcements/">Announcements</a></li> <li><a href="//www.qld.gov.au/services/">Do it online</a></li> <li><a href="//www.qld.gov.au/services/myaccount">My Account</a></li> <li><a href="//www.qld.gov.au/questions/">Popular questions</a></li> <li><a href="//www.qld.gov.au/contact-us/">Contact us</a></li> <li><a href="//www.qld.gov.au/help/">Help</a></li> <li><a href="//www.qld.gov.au/legal/">Legal statements</a></li> </ul> </div> </div><!-- end #nav-section --> </div> </div><!-- end #page-container, .max-width --> <div id="footer"> <!-- noindex --> <div id="fat-footer"> <div class="max-width"> <div class="box-sizing"><h2>Explore this site</h2> <div class="section"><h3><a href="https://www.qld.gov.au/">Queensland Government</a></h3> <ul> <li><a href="https://www.qld.gov.au/about/contact-government/contacts/">Government contacts</a> </li> <li><a href="https://www.qld.gov.au/about/contact-government/have-your-say/">Have your say</a> </li> <li><a href="https://www.qld.gov.au/about/staying-informed/">Staying informed</a></li> <li><a href="https://smartjobs.qld.gov.au/">Government jobs</a></li> <li><a href="https://www.qld.gov.au/about/how-government-works/">How government works</a></li> <li><a href="https://data.qld.gov.au/">Queensland Government data</a></li> <li><a href="https://publications.qld.gov.au/">Queensland Government publications</a></li> <li> <a href="https://www.qld.gov.au/gov/?utm_medium=website&amp;utm_source=qgov-site&amp;utm_campaign=dsiti-for-gov&amp;utm_content=swe-footer">For government employees</a></li> </ul> </div> <div class="section" id="for-qldrs"><h3><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></h3> <ul> <li><a href="https://www.qld.gov.au/transport/">Transport and motoring</a></li> <li><a href="https://www.qld.gov.au/jobs/">Employment and jobs</a></li> <li><a href="https://www.qld.gov.au/housing/">Homes and housing</a></li> <li><a href="https://www.qld.gov.au/education/">Education and training</a></li> <li><a href="https://www.qld.gov.au/community/">Community support</a></li> <li><a href="https://www.qld.gov.au/health/">Health and wellbeing</a></li> <li><a href="https://www.qld.gov.au/emergency/">Emergency services and safety</a></li> <li><a href="https://www.qld.gov.au/about/">About Queensland and its government</a></li> </ul> <ul> <li><a href="https://www.qld.gov.au/families/">Parents and families</a></li> <li><a href="https://www.qld.gov.au/disability/">People with disability</a></li> <li><a href="https://www.qld.gov.au/seniors/">Seniors</a></li> <li><a href="https://www.qld.gov.au/atsi/">Aboriginal and Torres Strait Islander peoples</a> </li> <li><a href="https://www.qld.gov.au/youth/">Youth</a></li> <li><a href="https://www.qld.gov.au/environment/">Environment, land and water</a></li> <li><a href="https://www.qld.gov.au/law/">Your rights, crime and the law</a></li> <li><a href="https://www.qld.gov.au/recreation/">Recreation, sport and arts</a></li> </ul> </div> <div class="section"><h3><a href="https://www.business.qld.gov.au/">Business and industry</a></h3> <ul> <li><a href="https://www.business.qld.gov.au/business/starting">Starting a business</a></li> <li><a href="https://www.business.qld.gov.au/business/running">Running a business</a></li> <li><a href="https://www.business.qld.gov.au/business/employing">Employing people</a></li> <li><a href="https://www.business.qld.gov.au/invest">Investing in Queensland</a></li> <li><a href="https://www.business.qld.gov.au/industry">For industry</a></li> <li><a href="https://www.business.qld.gov.au/invest/queenslands-regional-locations">Regional investment opportunities</a></li> <li> <a href="https://www.business.qld.gov.au/chinese-s/investing-queensland?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="zh">&#26118;&#22763;&#20848;&#24030;&#30340;&#25237;&#36164;&#26426;&#20250;</a> </li> <li> <a href="https://www.business.qld.gov.au/investing-queensland-chinese-t?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="zh">&#26118;&#22763;&#34349;&#24030;&#30340;&#25237;&#36039;&#27231;&#26371;</a> </li> <li> <a href="https://www.business.qld.gov.au/japanese-invest/investing-queensland?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="ja">&#12463;&#12452;&#12540;&#12531;&#12474;&#12521;&#12531;&#12489;&#24030;&#12408;&#12398;&#25237;&#36039;&#27231;&#20250;</a> </li> <li> <a href="https://www.business.qld.gov.au/korean-invest/investing-queensland?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="ko">&#53304;&#51592;&#47004;&#46300; &#53804;&#51088; &#44592;&#54924;</a></li> </ul> </div> </div> </div> </div> <div class="max-width"> <div class="box-sizing"><h2>Site footer</h2> <ul> <li id="link-help"><a href="https://www.qld.gov.au/help/">Help</a></li> <!--<li id="link-legal"><a href="https://www.qld.gov.au/legal/">Terms and conditions</a></li>--> <li class="legal"><a href="https://www.qld.gov.au/legal/copyright/">Copyright</a></li> <li class="legal"><a href="https://www.qld.gov.au/legal/disclaimer/">Disclaimer</a></li> <li class="legal"><a href="https://www.qld.gov.au/legal/privacy/">Privacy</a></li> <li class="legal"><a href="https://www.qld.gov.au/right-to-information/">Right to information</a></li> <li id="link-accessibility"><a href="https://www.qld.gov.au/help/accessibility/">Accessibility</a></li> <li id="link-jobs"><a href="https://smartjobs.qld.gov.au/">Jobs in Queensland Government</a></li> <li id="link-languages"><a href="https://www.qld.gov.au/languages/">Other languages</a></li> </ul> <!-- endnoindex --> <p class="legal">&copy; The State of Queensland 1995&ndash;2017</p> <p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p> <!-- <div id="qg-branding"><p><img class="tagline" src="https://static.qgov.net.au/assets/v2/images/skin/tagline.png" alt="Great state. Great opportunity. And a plan for the future." /></p></div> --> </div> </div> </div> <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.6/signature_pad.min.js"></script> <script type="text/javascript">console.log('javascript');
+    jQuery(document).ready(function () {
+        console.log('loaded');
+
+        var canvas = document.getElementById('thecanvas');
+        var signaturePad = new SignaturePad(canvas);
+        drawSignatureLine();
+
+        function drawSignatureLine()
+        {
+            var context = canvas.getContext('2d');
+            context.lineWidth = .5;
+            context.strokeStyle = '#333';
+            context.beginPath();
+            context.moveTo(0, 150);
+            context.lineTo(500, 150);
+            context.stroke();
+        }
+
+    });</script>

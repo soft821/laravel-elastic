@@ -1,0 +1,175 @@
+.selected-element {
+    outline: 2px dotted red !important;
+}
+
+.block-horizontal-height {
+    height: 33.33%;
+    min-height: 30%;
+}
+
+.block-vertical-width {
+    width: 33.33%
+}
+
+.fr-toolbar .fr-command.fr-btn img, .fr-popup .fr-command.fr-btn img {
+    height: 15px;
+    width: 75px;
+    margin-left: 5px;
+}
+
+.form-padding {
+    padding: 0.5em 0.5em 0.5em 0.5em
+}
+
+.sandy-stone {
+    background-color: #E6E2AF
+}
+
+.sandy-stone button {
+    background-color: #046380;
+    color: #EFECCA;
+}
+
+.sandy-stone button:hover {
+    background-color: #046380;
+    color: #EFECCA;
+}
+
+.honey-pot {
+    background-color: #DB9E36;
+    color: #BD4932;
+    font-family: Montserrat
+}
+
+.honey-pot button {
+    background-color: #BD4932;
+    color: #FFFAD5;
+}
+
+.honey-pot button:hover {
+    background-color: #BD4932;
+    color: #FFFAD5;
+}
+
+.honey-pot input {
+    background-color: #FFD34E;
+}
+
+.honey-pot h1 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.honey-pot label {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.granny-apple {
+    background-color: #A7C520;
+    color: #493F0B
+}
+
+.granny-apple button {
+    background-color: #493F0B;
+    color: #FFFAD5;
+}
+
+.granny-apple button:hover {
+    background-color: #493F0B;
+    color: #FFFAD5;
+}
+
+.granny-apple input {
+    background-color: #F5F6D4;
+}
+
+.granny-apple h1 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.granny-apple label {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.pink-peppermint {
+    background-color: #DE264C;
+    color: #F6B1C3;
+    font-family: Montserrat
+}
+
+.pink-peppermint button {
+    background-color: #A20D1E;
+    color: #F6B1C3;
+}
+
+.pink-peppermint button:hover {
+    background-color: #A20D1E;
+    color: #F6B1C3;
+}
+
+.pink-peppermint input {
+    background-color: #FFF;
+}
+
+.pink-peppermint h1 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.pink-peppermint label {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.cote-azur {
+    background-color: #009393;
+    color: #F0EDBB
+}
+
+.cote-azur button {
+    background-color: #FF3800;
+    color: #F0EDBB;
+}
+
+.cote-azur button:hover {
+    background-color: #FF3800;
+    color: #F0EDBB;
+}
+
+.cote-azur input {
+    background-color: #FFFCC4;
+}
+
+.cote-azur h1 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.cote-azur label {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.fr-wrapper {
+    /* height: initial !important;*/
+    /* direction: rtl;*/
+}
+
+.colorpicker {
+    z-index: 9999999;
+}
+
+.fr-popup {
+    z-index: 9999999;
+}
+
+.fr-view table td, .fr-view table th {
+    padding: 0px 0px 0px 0px;
+}
+
+.fr-wrapper.show-placeholder .fr-placeholder {
+    display: none;
+}

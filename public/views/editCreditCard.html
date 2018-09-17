@@ -1,0 +1,51 @@
+<div class="modal-header"> <h3 class="modal-title" ng-if="edit == 0">Update Card Details</h3> <h3 class="modal-title" ng-if="edit == 1">Add Credit Card</h3> <div class="row"> <!-- <div class="col-sm-8 col-sm-offset-4">
+            <div class="col-sm-9 text-right">
+                <span class="onoffswitch-title"><i class="fa fa-location-arrow"></i>Change card</span>
+            </div>
+            <div class="col-sm-3 switch">
+                <div class="onoffswitch">
+                    <input type="checkbox"  class="onoffswitch-checkbox" id="innserSwitch" ng-click="edit=!edit">
+                    <label class="onoffswitch-label" for="innserSwitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+        </div> --> </div> </div> <div class="modal-body"> <div class="row"> <div class="col-md-12"> <div class="col-md-12"> <div class="form-group"> <div ng-include="'views/common/flashMessage.html'"></div> </div> </div> </div> </div> <div class="margin-bottom-10"> <div ng-show="edit"> <div ng-show="isLoading_save"> Please wait for few minutes ... </div> <div class="form-group" ng-show="!isLoading_save && message"> <span class="text-danger">{{message}}</span> </div> <div ng-hide="isLoading_save"> <form role="form" id="payment-form1" stripe:form="saveCustomer" name="editCreditCardForm"> <div class="row" ng-show="edit"> <div class="col-xs-8"> <div class="form-group"> <label>CARD NUMBER</label> <div class="input-group"> <input id="numbers" class="form-control" ng-model="paymentMethodDetails.last4" type="text" size="20" name="number" ng-disabled="!edit" payments-format="card" payments-validate="card" data-stripe="number" placeholder="Card Number" required name="number"> <span class="input-group-addon"> <i class="fa fa-credit-card"></i> </span> </div> <div class="m-t-xs" ng-show="editCreditCardForm.number.$invalid && editCreditCardForm.number.$touched"> <small class="text-danger" ng-show="editCreditCardForm.number.$invalid && editCreditCardForm.number.$touched"> Invalid card number! </small> </div> </div> </div> <div class="col-xs-5 col-md-4"> <div class="form-group"> <label>CV CODE</label> <input id="cvc" type="text" size="4" placeholder="CVC" ng-model="paymentMethodDetails.cvc" class="form-control" name="cvc" payments-format="cvc" payments-validate="cvc" data-stripe="cvc" required> <div class="m-t-xs" ng-show="editCreditCardForm.cvc.$invalid && editCreditCardForm.cvc.$touched"> <small class="text-danger" ng-show="editCreditCardForm.cvc.$invalid && editCreditCardForm.cvc.$touched"> Invalid CV Code! </small> </div> </div> </div> </div> <div class="row"> <div class="col-xs-6 col-md-6"> <div class="form-group"> <label>EXPIRATION MONTH</label> <input id="expMonth" type="text" size="2" class="form-control" placeholder="MM" ng-model="exp_month" data-stripe="exp-month" name="month" minlength="2" maxlength="2"> <div class="m-t-xs" ng-show="editCreditCardForm.month.$invalid && editCreditCardForm.month.$touched"> <small class="text-danger" ng-show="editCreditCardForm.month.$invalid && editCreditCardForm.month.$touched"> Invalid Expiration Month! </small> </div> </div> </div> <!-- <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                                <label>EXPIRATION YEAR</label>
+                                <input id="expYear" type="text" size="4" placeholder="YYYY" class="form-control" ng-model="exp_year" data-stripe="exp-year"
+                                    name="year" minlength="4" maxlength="4" />
+                                <div class="m-t-xs" ng-show="editCreditCardForm.year.$invalid && editCreditCardForm.year.$touched">
+                                    <small class="text-danger" ng-show="editCreditCardForm.year.$invalid && editCreditCardForm.year.$touched">
+                                        Enter Valid Year!
+                                    </small>
+                                </div>
+                            </div>
+                        </div> --> </div> <div class="row" ng-show="edit"> <!-- <div class="col-xs-7 col-md-7">
+                             <div class="form-group">
+                                 <label>EXPIRATION DATE</label>
+                                 <input type="text" class="form-control" name="Expiry" placeholder="MM / YY" required/>
+                             </div>
+                         </div>--> <div class="col-xs-5 col-md-5"> <div class="form-group"> <input type="checkbox" icheck id="selectDefault" ng-model="paymentMethodDetails.makeDefault" class="form-control"> <label> Make Default</label> </div> </div> </div> <!-- <div class="row">
+                         <div class="col-xs-12">
+                             <div class="form-group">
+                                 <label>NAME OF CARD</label>
+                                 <input type="text" class="form-control" name="nameCard"
+                                        placeholder="NAME AND SURNAME"/>
+                             </div>
+                         </div>
+                     </div>--> <div class="row"> <div class="col-xs-12"> <button class="btn btn-warning" ng-click="cancel()">Cancel</button> <button class="btn btn-primary" id="submitCard" type="submit">Save Change</button> </div> </div> </form> </div> </div> <div ng-hide="edit"> <div ng-show="isLoading"> <div class="ibox-content"> <div class="spiner-example"> <div class="sk-spinner sk-spinner-three-bounce"> <div class="sk-bounce1"></div> <div class="sk-bounce2"></div> <div class="sk-bounce3"></div> </div> </div> </div> </div> <div ng-hide="isLoading"> <form role="form" name="checkoutForm"> <div class="row" ng-show="edit"> <div class="col-xs-12"> <div class="form-group"> <label>CARD NUMBER</label> <div class="input-group"> <input id="number" class="form-control" ng-model="paymentMethodDetails.last4" type="text" size="20" name="Number" ng-disabled="!edit" payments-format="card" payments-validate="card" data-stripe="number" placeholder="Cart Number" required> <span class="input-group-addon"> <i class="fa fa-credit-card"></i> </span> </div> </div> </div> </div> <div class="row"> <div class="col-xs-6 col-md-6"> <div class="form-group"> <label>EXPIRATION MONTH</label> <input id="expMonths" type="text" size="2" class="form-control" placeholder="MM" ng-model="paymentMethodDetails.exp_month" data-stripe="exp-month" minlength="2" maxlength="2" min="1" max="12" minlength="2" maxlength="2" name="month"> <div class="m-t-xs" ng-show="checkoutForm.month.$invalid && checkoutForm.month.$touched"> <small class="text-danger" ng-show="checkoutForm.month.$invalid && checkoutForm.month.$touched"> Invalid Expiration Month! </small> </div> </div> </div> <div class="col-xs-6 col-md-6"> <div class="form-group"> <label>EXPIRATION YEAR</label> <input id="expYears" type="text" size="4" placeholder="YYYY" class="form-control" ng-model="paymentMethodDetails.exp_year" data-stripe="exp-year" minlength="4" maxlength="4" name="year"> <div class="m-t-xs" ng-show="checkoutForm.year.$invalid && checkoutForm.year.$touched"> <small class="text-danger" ng-show="checkoutForm.year.$invalid && checkoutForm.year.$touched"> Enter Valid Year! </small> </div> </div> </div> </div> <div class="row" ng-show="edit"> <!-- <div class="col-xs-7 col-md-7">
+                             <div class="form-group">
+                                 <label>EXPIRATION DATE</label>
+                                 <input type="text" class="form-control" name="Expiry" placeholder="MM / YY" required/>
+                             </div>
+                         </div>--> <div class="col-xs-5 col-md-5"> <div class="form-group"> <label>CV CODE</label> <input type="text" size="4" placeholder="CVC" ng-model="paymentMethodDetails.cvc" class="form-control" name="cvc" payments-format="cvc" payments-validate="cvc" data-stripe="cvc" required> <div class="m-t-xs" ng-show="checkoutForm.cvc.$invalid && checkoutForm.cvc.$touched"> <small class="text-danger" ng-show="checkoutForm.cvc.$invalid && checkoutForm.cvc.$touched"> Invalid CV Code! </small> </div> </div> </div> </div> <!-- <div class="row">
+                         <div class="col-xs-12">
+                             <div class="form-group">
+                                 <label>NAME OF CARD</label>
+                                 <input type="text" class="form-control" name="nameCard"
+                                        placeholder="NAME AND SURNAME"/>
+                             </div>
+                         </div>
+                     </div>--> </form> </div> </div> </div> </div> <div class="modal-footer" ng-hide="edit"> <button class="btn btn-warning" ng-click="cancel()" ng-disabled="!saveChange">Cancel</button> <button id="billingSave" class="btn btn-primary" ng-click="save()" ng-disabled="!saveChange">Save Changes</button> </div>

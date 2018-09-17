@@ -1,0 +1,75 @@
+<div class="row border-bottom white-bg page-heading">
+    <div class="col-md-10">
+        <h2>Route Management</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li class="active">
+                <strong>Route Management</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>
+<div class=" animated fadeInRight ecommerce">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="ibox product-detail">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tabs-container tab">
+                                <tabset>
+                                    <tab ng-repeat="entity in entities">
+                                        <tab-heading>
+                                            <!--<i class="fa fa-pencil-square-o"></i> -->
+                                            {{entity.name}}
+                                        </tab-heading>
+                                        <div class="panel-body">
+                                            {{entity.name}}
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-6">
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Path</th>
+                                                        <th>Method</th>
+                                                        <th class="text-center">Permission</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="route in entity.routes">
+                                                        <td>{{route.name}}</td>
+                                                        <td>{{route.path}}</td>
+                                                        <td>{{route.method}}</td>
+                                                        <td class="text-center">
+                                                            <input icheck type="checkbox" ng-model="route.permission"
+                                                                   value="1" ng-change="update(entity,route)">
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </tab>
+                                </tabset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+table td.fr-selected-cell, table th.fr-selected-cell {
+    border: 0px solid #ddd;
+}
+
+.fr-view table td, .fr-view table th {
+    border: 0px solid #dddddd;
+}

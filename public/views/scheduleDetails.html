@@ -1,0 +1,31 @@
+<div class="modal-body"> <div ng-include="'views/common/flashMessage.html'"></div> <!-- !!!!! START !!!!DETAILS FOR TRAINER --> <div class="row" ng-show="currentUser.roles[0].id == 4"> <div class="col-md-12"><h1>Schedule Details</h1> <hr> <label>Start</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input name="start" type="date" alphabets="" class="form-control" ng-model="currentSchedule.start" required tooltip-placement="top"> </div> <label>From</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input name="from" type="time" alphabets="" class="form-control" ng-model="currentSchedule.from" required tooltip-placement="top"> </div> <label>To</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input type="time" class="form-control" name="to" tooltip-placement="top" required ng-model="currentSchedule.to"> </div> <label>Finish</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input type="date" ng-model="currentSchedule.finish" class="form-control" name="finish" tooltip-placement="top" required></div> </div> <!-- <div class="col-md-12">
+            <div class="row" style="margin-right:0px;">
+                <div class="col-lg-5">
+                    <dl class="dl-horizontal">
+                        {{currentSchedule}}
+                        <dt>Created by:</dt>
+                        <dd>{{currentUser.first_name}}</dd>
+                        <dt>Client:</dt>
+                        <dd>
+                            <a href="#" class="text-navy">Client name</a>
+                        </dd>
+
+
+                    </dl>
+                </div>
+                <div class="col-lg-7" id="cluster_info">
+                    <dl class="dl-horizontal">
+
+                        <dt>Start:</dt>
+                        <dd> {{currentSchedule.start}} </dd>
+                        <dt>From:</dt>
+                        <dd> {{currentSchedule.from}} </dd>
+                        <dt>Finish:</dt>
+                        <dd> {{currentSchedule.finish}}</dd>
+                        <dt>To:</dt>
+                        <dd> {{currentSchedule.to}} </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div> --> </div> <!--!!!!!!  END  !!!!DETAILS FOR TRAINER --> <!--!!!!!!  START  !!!!DETAILS FOR CLIENT --> <div class="row" ng-show="currentUser.roles[0].id == 1"> <div ng-repeat="training in pastFutureSchedule" class="col-md-12"><h1>Schedule Details</h1> <label>Start</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input name="start" type="text" alphabets="" class="form-control" ng-model="training.start" required tooltip-placement="top"> </div> <label>From</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input name="from" type="text" alphabets="" class="form-control" ng-model="training.from" required tooltip-placement="top"> </div> <label>To</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" class="form-control" name="to" tooltip-placement="top" required ng-model="training.to"></div> <label>Finish</label> <div class="form-group" ng-class="windowWidth > 992 ? 'big-placeholder' : ''"><input ng-model="training.finish" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" class="form-control" name="finish" tooltip-placement="top" required></div> </div> </div> <!--!!!!!!  END  !!!!DETAILS FOR CLIENT --> </div> <div class="modal-footer"> <button type="submit" class="btn btn-primary" ng-click="updateSchedule()">Save</button> <button type="submit" class="btn btn-warning" ng-click="cancel()">Back</button> </div>

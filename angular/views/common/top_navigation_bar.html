@@ -1,0 +1,40 @@
+<div id="top-navigation-bar-fixed" class="row border-bottom white-bg">
+    <nav class="navbar navbar-static-top" role="navigation">
+        <span minimaliza-sidebar="">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="" ng-click="minimalize()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </span>
+
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-top-links navbar-right">
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>
+
+                        <span class="label label-primary" ng-if="notifications.length>0">{{notifications.length}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li ng-repeat="entity in notifications">
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comments-o "></i> {{entity.data}}
+                                    <span class="pull-right text-muted small">{{entity.created_at}}</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li ng-if="notifications.length===0">
+                            <a href="#">
+                                <div>
+                                    There are no new notifications.
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

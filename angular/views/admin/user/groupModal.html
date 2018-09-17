@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h3 ng-if="!isCreate" class="modal-title">Edit Group Types </h3>
+    <h3 ng-if="isCreate" class="modal-title">Create Group Types </h3>
+</div>
+<div class="modal-body">
+    <div class="margin-bottom-10">
+        <div class="row">
+            <div class="col-md-12 marketing-section-title">
+                <div class="col-md-12">
+                    <form method="get" class="form-horizontal">
+                        <div class="row form-group">
+                            <label class="col-sm-2 ">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" tooltip-placement="top" tooltip="Group Name"
+                                       ng-model="group.group_name" placeholder="Group Name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-sm-2">Affix</label>
+                            <div class="col-sm-10">
+                                <input type="text" ng-model="group.group_affix" tooltip-placement="top"
+                                       tooltip="Group Affix" placeholder="Group Affix" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-sm-2">Blob Type</label>
+                            <div class="col-md-10">
+                                <select ng-model="group.blob_type_id"
+                                        ng-options="s.id as s.label for s in blobTypes"
+                                        class="form-control">
+                                    <option value=""> Select Blob Type</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button ng-if="!isCreate" class="btn btn-primary" ng-click="ok()">Update</button>
+    <button ng-if="isCreate" class="btn btn-primary" ng-click="create()">Create</button>
+    <button class="btn btn-warning" ng-click="cancel()">cancel</button>
+</div>

@@ -1,0 +1,3521 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Laravel Generator APIs",
+        "version": "1.0.0"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/menuses": {
+            "get": {
+                "tags": [
+                    "Menus"
+                ],
+                "summary": "Get a listing of the Menuses.",
+                "description": "Get all Menuses",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Menus"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Menus"
+                ],
+                "summary": "Store a newly created Menus in storage",
+                "description": "Store Menus",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Menus that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Menus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Menus"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/menuses/{id}": {
+            "get": {
+                "tags": [
+                    "Menus"
+                ],
+                "summary": "Display the specified Menus",
+                "description": "Get Menus",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Menus",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Menus"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Menus"
+                ],
+                "summary": "Update the specified Menus in storage",
+                "description": "Update Menus",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Menus",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Menus that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Menus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Menus"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Menus"
+                ],
+                "summary": "Remove the specified Menus from storage",
+                "description": "Delete Menus",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Menus",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photoCats": {
+            "get": {
+                "tags": [
+                    "PhotoCat"
+                ],
+                "summary": "Get a listing of the PhotoCats.",
+                "description": "Get all PhotoCats",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PhotoCat"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PhotoCat"
+                ],
+                "summary": "Store a newly created PhotoCat in storage",
+                "description": "Store PhotoCat",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PhotoCat that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PhotoCat"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoCat"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photoCats/{id}": {
+            "get": {
+                "tags": [
+                    "PhotoCat"
+                ],
+                "summary": "Display the specified PhotoCat",
+                "description": "Get PhotoCat",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoCat",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoCat"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PhotoCat"
+                ],
+                "summary": "Update the specified PhotoCat in storage",
+                "description": "Update PhotoCat",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoCat",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PhotoCat that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PhotoCat"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoCat"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PhotoCat"
+                ],
+                "summary": "Remove the specified PhotoCat from storage",
+                "description": "Delete PhotoCat",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoCat",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photoFaces": {
+            "get": {
+                "tags": [
+                    "PhotoFace"
+                ],
+                "summary": "Get a listing of the PhotoFaces.",
+                "description": "Get all PhotoFaces",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PhotoFace"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PhotoFace"
+                ],
+                "summary": "Store a newly created PhotoFace in storage",
+                "description": "Store PhotoFace",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PhotoFace that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PhotoFace"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoFace"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photoFaces/{id}": {
+            "get": {
+                "tags": [
+                    "PhotoFace"
+                ],
+                "summary": "Display the specified PhotoFace",
+                "description": "Get PhotoFace",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoFace",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoFace"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PhotoFace"
+                ],
+                "summary": "Update the specified PhotoFace in storage",
+                "description": "Update PhotoFace",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoFace",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PhotoFace that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PhotoFace"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoFace"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PhotoFace"
+                ],
+                "summary": "Remove the specified PhotoFace from storage",
+                "description": "Delete PhotoFace",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoFace",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photoLabels": {
+            "get": {
+                "tags": [
+                    "PhotoLabel"
+                ],
+                "summary": "Get a listing of the PhotoLabels.",
+                "description": "Get all PhotoLabels",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PhotoLabel"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PhotoLabel"
+                ],
+                "summary": "Store a newly created PhotoLabel in storage",
+                "description": "Store PhotoLabel",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PhotoLabel that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PhotoLabel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoLabel"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photoLabels/{id}": {
+            "get": {
+                "tags": [
+                    "PhotoLabel"
+                ],
+                "summary": "Display the specified PhotoLabel",
+                "description": "Get PhotoLabel",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoLabel",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoLabel"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PhotoLabel"
+                ],
+                "summary": "Update the specified PhotoLabel in storage",
+                "description": "Update PhotoLabel",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoLabel",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PhotoLabel that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PhotoLabel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PhotoLabel"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PhotoLabel"
+                ],
+                "summary": "Remove the specified PhotoLabel from storage",
+                "description": "Delete PhotoLabel",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PhotoLabel",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photos": {
+            "get": {
+                "tags": [
+                    "Photos"
+                ],
+                "summary": "Get a listing of the Photos.",
+                "description": "Get all Photos",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Photos"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Photos"
+                ],
+                "summary": "Store a newly created Photos in storage",
+                "description": "Store Photos",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Photos that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Photos"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Photos"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/photos/{id}": {
+            "get": {
+                "tags": [
+                    "Photos"
+                ],
+                "summary": "Display the specified Photos",
+                "description": "Get Photos",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Photos",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Photos"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Photos"
+                ],
+                "summary": "Update the specified Photos in storage",
+                "description": "Update Photos",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Photos",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Photos that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Photos"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Photos"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Photos"
+                ],
+                "summary": "Remove the specified Photos from storage",
+                "description": "Delete Photos",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Photos",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/places/search": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get a listing of the Places with filters.",
+                "description": "Get all Places",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Place"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/places": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get a listing of the Places.",
+                "description": "Get all Places",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Place"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Store a newly created Place in storage",
+                "description": "Store Place",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Place that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Place"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Place"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/places/{id}": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Display the specified Place",
+                "description": "Get Place",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Place",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Place"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Update the specified Place in storage",
+                "description": "Update Place",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Place",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Place that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Place"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Place"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Remove the specified Place from storage",
+                "description": "Delete Place",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Place",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/places/{id}/details": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Display the specified Place with details",
+                "description": "Get Place and its details",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Place",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Place"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/places/{id}/reviews": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Display the specified Place with reviews",
+                "description": "Get Place and its reviews",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Place",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Place"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeImages": {
+            "get": {
+                "tags": [
+                    "PlaceImage"
+                ],
+                "summary": "Get a listing of the PlaceImages.",
+                "description": "Get all PlaceImages",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PlaceImage"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlaceImage"
+                ],
+                "summary": "Store a newly created PlaceImage in storage",
+                "description": "Store PlaceImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceImage that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceImage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceImage"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeImages/{id}": {
+            "get": {
+                "tags": [
+                    "PlaceImage"
+                ],
+                "summary": "Display the specified PlaceImage",
+                "description": "Get PlaceImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceImage",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceImage"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PlaceImage"
+                ],
+                "summary": "Update the specified PlaceImage in storage",
+                "description": "Update PlaceImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceImage",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceImage that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceImage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceImage"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlaceImage"
+                ],
+                "summary": "Remove the specified PlaceImage from storage",
+                "description": "Delete PlaceImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceImage",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeMetas": {
+            "get": {
+                "tags": [
+                    "PlaceMeta"
+                ],
+                "summary": "Get a listing of the PlaceMetas.",
+                "description": "Get all PlaceMetas",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PlaceMeta"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlaceMeta"
+                ],
+                "summary": "Store a newly created PlaceMeta in storage",
+                "description": "Store PlaceMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceMeta that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceMeta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceMeta"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeMetas/{id}": {
+            "get": {
+                "tags": [
+                    "PlaceMeta"
+                ],
+                "summary": "Display the specified PlaceMeta",
+                "description": "Get PlaceMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceMeta",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceMeta"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PlaceMeta"
+                ],
+                "summary": "Update the specified PlaceMeta in storage",
+                "description": "Update PlaceMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceMeta",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceMeta that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceMeta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceMeta"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlaceMeta"
+                ],
+                "summary": "Remove the specified PlaceMeta from storage",
+                "description": "Delete PlaceMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceMeta",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeMetaDatas": {
+            "get": {
+                "tags": [
+                    "PlaceMetaData"
+                ],
+                "summary": "Get a listing of the PlaceMetaDatas.",
+                "description": "Get all PlaceMetaDatas",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PlaceMetaData"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlaceMetaData"
+                ],
+                "summary": "Store a newly created PlaceMetaData in storage",
+                "description": "Store PlaceMetaData",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceMetaData that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceMetaData"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceMetaData"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeMetaDatas/{id}": {
+            "get": {
+                "tags": [
+                    "PlaceMetaData"
+                ],
+                "summary": "Display the specified PlaceMetaData",
+                "description": "Get PlaceMetaData",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceMetaData",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceMetaData"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PlaceMetaData"
+                ],
+                "summary": "Update the specified PlaceMetaData in storage",
+                "description": "Update PlaceMetaData",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceMetaData",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceMetaData that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceMetaData"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceMetaData"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlaceMetaData"
+                ],
+                "summary": "Remove the specified PlaceMetaData from storage",
+                "description": "Delete PlaceMetaData",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceMetaData",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeNLUs": {
+            "get": {
+                "tags": [
+                    "PlaceNLU"
+                ],
+                "summary": "Get a listing of the PlaceNLUs.",
+                "description": "Get all PlaceNLUs",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PlaceNLU"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlaceNLU"
+                ],
+                "summary": "Store a newly created PlaceNLU in storage",
+                "description": "Store PlaceNLU",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceNLU that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceNLU"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceNLU"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeNLUs/{id}": {
+            "get": {
+                "tags": [
+                    "PlaceNLU"
+                ],
+                "summary": "Display the specified PlaceNLU",
+                "description": "Get PlaceNLU",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceNLU",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceNLU"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PlaceNLU"
+                ],
+                "summary": "Update the specified PlaceNLU in storage",
+                "description": "Update PlaceNLU",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceNLU",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceNLU that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceNLU"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceNLU"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlaceNLU"
+                ],
+                "summary": "Remove the specified PlaceNLU from storage",
+                "description": "Delete PlaceNLU",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceNLU",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeReviews": {
+            "get": {
+                "tags": [
+                    "PlaceReview"
+                ],
+                "summary": "Get a listing of the PlaceReviews.",
+                "description": "Get all PlaceReviews",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PlaceReview"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlaceReview"
+                ],
+                "summary": "Store a newly created PlaceReview in storage",
+                "description": "Store PlaceReview",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceReview that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceReview"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReview"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeReviews/{id}": {
+            "get": {
+                "tags": [
+                    "PlaceReview"
+                ],
+                "summary": "Display the specified PlaceReview",
+                "description": "Get PlaceReview",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReview",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReview"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PlaceReview"
+                ],
+                "summary": "Update the specified PlaceReview in storage",
+                "description": "Update PlaceReview",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReview",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceReview that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceReview"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReview"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlaceReview"
+                ],
+                "summary": "Remove the specified PlaceReview from storage",
+                "description": "Delete PlaceReview",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReview",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeReviewImages": {
+            "get": {
+                "tags": [
+                    "PlaceReviewImage"
+                ],
+                "summary": "Get a listing of the PlaceReviewImages.",
+                "description": "Get all PlaceReviewImages",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PlaceReviewImage"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlaceReviewImage"
+                ],
+                "summary": "Store a newly created PlaceReviewImage in storage",
+                "description": "Store PlaceReviewImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceReviewImage that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceReviewImage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReviewImage"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeReviewImages/{id}": {
+            "get": {
+                "tags": [
+                    "PlaceReviewImage"
+                ],
+                "summary": "Display the specified PlaceReviewImage",
+                "description": "Get PlaceReviewImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReviewImage",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReviewImage"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PlaceReviewImage"
+                ],
+                "summary": "Update the specified PlaceReviewImage in storage",
+                "description": "Update PlaceReviewImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReviewImage",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceReviewImage that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceReviewImage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReviewImage"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlaceReviewImage"
+                ],
+                "summary": "Remove the specified PlaceReviewImage from storage",
+                "description": "Delete PlaceReviewImage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReviewImage",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeReviewMetas": {
+            "get": {
+                "tags": [
+                    "PlaceReviewMeta"
+                ],
+                "summary": "Get a listing of the PlaceReviewMetas.",
+                "description": "Get all PlaceReviewMetas",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PlaceReviewMeta"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "PlaceReviewMeta"
+                ],
+                "summary": "Store a newly created PlaceReviewMeta in storage",
+                "description": "Store PlaceReviewMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceReviewMeta that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceReviewMeta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReviewMeta"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/placeReviewMetas/{id}": {
+            "get": {
+                "tags": [
+                    "PlaceReviewMeta"
+                ],
+                "summary": "Display the specified PlaceReviewMeta",
+                "description": "Get PlaceReviewMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReviewMeta",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReviewMeta"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PlaceReviewMeta"
+                ],
+                "summary": "Update the specified PlaceReviewMeta in storage",
+                "description": "Update PlaceReviewMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReviewMeta",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "PlaceReviewMeta that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/PlaceReviewMeta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/PlaceReviewMeta"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PlaceReviewMeta"
+                ],
+                "summary": "Remove the specified PlaceReviewMeta from storage",
+                "description": "Delete PlaceReviewMeta",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of PlaceReviewMeta",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get a listing of the Users.",
+                "description": "Get all Users",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Users"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Store a newly created Users in storage",
+                "description": "Store Users",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Users that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Users"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Display the specified Users",
+                "description": "Get Users",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Users",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Users"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update the specified Users in storage",
+                "description": "Update Users",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Users",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Users that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Users"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Remove the specified Users from storage",
+                "description": "Delete Users",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Users",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Menus": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "parent_id": {
+                    "description": "parent_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "name": {
+                    "description": "name",
+                    "type": "string"
+                },
+                "tool_tips": {
+                    "description": "tool_tips",
+                    "type": "string"
+                },
+                "icon": {
+                    "description": "icon",
+                    "type": "string"
+                },
+                "view_name": {
+                    "description": "view_name",
+                    "type": "string"
+                },
+                "order_number": {
+                    "description": "order_number",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "PhotoCat": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "photo_cat_id": {
+                    "description": "photo_cat_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "photo_id": {
+                    "description": "photo_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "label": {
+                    "description": "label",
+                    "type": "string"
+                },
+                "confidence": {
+                    "description": "confidence",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "cat_0": {
+                    "description": "cat_0",
+                    "type": "string"
+                },
+                "cat_1": {
+                    "description": "cat_1",
+                    "type": "string"
+                },
+                "cat_2": {
+                    "description": "cat_2",
+                    "type": "string"
+                },
+                "cat_3": {
+                    "description": "cat_3",
+                    "type": "string"
+                },
+                "cat_4": {
+                    "description": "cat_4",
+                    "type": "string"
+                },
+                "cat_5": {
+                    "description": "cat_5",
+                    "type": "string"
+                },
+                "cat_6": {
+                    "description": "cat_6",
+                    "type": "string"
+                },
+                "cat_7": {
+                    "description": "cat_7",
+                    "type": "string"
+                }
+            }
+        },
+        "PhotoFace": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "photo_id": {
+                    "description": "photo_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "face_recognized": {
+                    "description": "face_recognized",
+                    "type": "boolean"
+                },
+                "data": {
+                    "description": "data",
+                    "type": "string"
+                }
+            }
+        },
+        "PhotoLabel": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "photo_id": {
+                    "description": "photo_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "label": {
+                    "description": "label",
+                    "type": "string"
+                },
+                "src": {
+                    "description": "src",
+                    "type": "string"
+                },
+                "confidence": {
+                    "description": "confidence",
+                    "type": "number",
+                    "format": "float"
+                },
+                "cat_2": {
+                    "description": "cat_2",
+                    "type": "string"
+                },
+                "cat_3": {
+                    "description": "cat_3",
+                    "type": "string"
+                },
+                "cat_4": {
+                    "description": "cat_4",
+                    "type": "string"
+                },
+                "cat_5": {
+                    "description": "cat_5",
+                    "type": "string"
+                },
+                "cat_6": {
+                    "description": "cat_6",
+                    "type": "string"
+                },
+                "cat_7": {
+                    "description": "cat_7",
+                    "type": "string"
+                }
+            }
+        },
+        "Photos": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "path": {
+                    "description": "path",
+                    "type": "string"
+                },
+                "src": {
+                    "description": "src",
+                    "type": "string"
+                },
+                "link": {
+                    "description": "link",
+                    "type": "string"
+                },
+                "aws_indexing": {
+                    "description": "aws_indexing",
+                    "type": "boolean"
+                },
+                "aws_done": {
+                    "description": "aws_done",
+                    "type": "boolean"
+                },
+                "src_done": {
+                    "description": "src_done",
+                    "type": "boolean"
+                },
+                "watson_done": {
+                    "description": "watson_done",
+                    "type": "boolean"
+                },
+                "valid": {
+                    "description": "valid",
+                    "type": "boolean"
+                },
+                "watson_cats_done": {
+                    "description": "watson_cats_done",
+                    "type": "boolean"
+                }
+            }
+        },
+        "Place": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "name": {
+                    "description": "name",
+                    "type": "string"
+                },
+                "lat": {
+                    "description": "lat",
+                    "type": "number",
+                    "format": "float"
+                },
+                "lng": {
+                    "description": "lng",
+                    "type": "number",
+                    "format": "float"
+                },
+                "jsg_id": {
+                    "description": "jsg_id",
+                    "type": "string"
+                },
+                "jsfa_id": {
+                    "description": "jsfa_id",
+                    "type": "string"
+                },
+                "jsfs_id": {
+                    "description": "jsfs_id",
+                    "type": "string"
+                },
+                "jsyelp_id": {
+                    "description": "jsyelp_id",
+                    "type": "string"
+                },
+                "jsta_id": {
+                    "description": "jsta_id",
+                    "type": "string"
+                },
+                "domain": {
+                    "description": "domain",
+                    "type": "string"
+                },
+                "domain_indexed": {
+                    "description": "domain_indexed",
+                    "type": "boolean"
+                },
+                "url_src": {
+                    "description": "url_src",
+                    "type": "string"
+                },
+                "url_redir": {
+                    "description": "url_redir",
+                    "type": "string"
+                },
+                "domain_path": {
+                    "description": "domain_path",
+                    "type": "string"
+                },
+                "merge_complete": {
+                    "description": "merge_complete",
+                    "type": "boolean"
+                },
+                "place_analyzed": {
+                    "description": "place_analyzed",
+                    "type": "boolean"
+                }
+            }
+        },
+        "PlaceImage": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "place_image_id": {
+                    "description": "place_image_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "place_id": {
+                    "description": "place_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "path": {
+                    "description": "path",
+                    "type": "string"
+                },
+                "sid": {
+                    "description": "sid",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "analyzed": {
+                    "description": "analyzed",
+                    "type": "boolean"
+                },
+                "is_photo": {
+                    "description": "is_photo",
+                    "type": "boolean"
+                },
+                "colors": {
+                    "description": "colors",
+                    "type": "string"
+                }
+            }
+        },
+        "PlaceMeta": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "type": {
+                    "description": "type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "value",
+                    "type": "string"
+                },
+                "asset_src": {
+                    "description": "asset_src",
+                    "type": "string"
+                },
+                "asset_dl": {
+                    "description": "asset_dl",
+                    "type": "boolean"
+                }
+            }
+        },
+        "PlaceMetaData": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "key": {
+                    "description": "key",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "value",
+                    "type": "string"
+                },
+                "value_long": {
+                    "description": "value_long",
+                    "type": "string"
+                }
+            }
+        },
+        "PlaceNLU": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "place_nlu_id": {
+                    "description": "place_nlu_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "place_id": {
+                    "description": "place_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "nlu": {
+                    "description": "nlu",
+                    "type": "string"
+                },
+                "photos": {
+                    "description": "photos",
+                    "type": "string"
+                }
+            }
+        },
+        "PlaceReview": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "timestamp": {
+                    "description": "timestamp",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "user_id": {
+                    "description": "user_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "mode": {
+                    "description": "mode",
+                    "type": "boolean"
+                },
+                "code": {
+                    "description": "code",
+                    "type": "boolean"
+                },
+                "comment": {
+                    "description": "comment",
+                    "type": "string"
+                },
+                "_meta": {
+                    "description": "_meta",
+                    "type": "string"
+                },
+                "_has_meta": {
+                    "description": "_has_meta",
+                    "type": "boolean"
+                },
+                "watson_indexing": {
+                    "description": "watson_indexing",
+                    "type": "boolean"
+                },
+                "watson_indexed": {
+                    "description": "watson_indexed",
+                    "type": "boolean"
+                },
+                "_has_rev_photo": {
+                    "description": "_has_rev_photo",
+                    "type": "boolean"
+                }
+            }
+        },
+        "PlaceReviewImage": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "place_review_image_id": {
+                    "description": "place_review_image_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "place_review_id": {
+                    "description": "place_review_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "place_id": {
+                    "description": "place_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "text": {
+                    "description": "text",
+                    "type": "string"
+                },
+                "path": {
+                    "description": "path",
+                    "type": "string"
+                },
+                "src": {
+                    "description": "src",
+                    "type": "string"
+                }
+            }
+        },
+        "PlaceReviewMeta": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "place_review_meta_id": {
+                    "description": "place_review_meta_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "place_review_id": {
+                    "description": "place_review_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "place_id": {
+                    "description": "place_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "data": {
+                    "description": "data",
+                    "type": "string"
+                }
+            }
+        },
+        "RoleUser": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "role_id": {
+                    "description": "role_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "user_id": {
+                    "description": "user_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "granted": {
+                    "description": "granted",
+                    "type": "boolean"
+                }
+            }
+        },
+        "Roles": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "name": {
+                    "description": "name",
+                    "type": "string"
+                },
+                "slug": {
+                    "description": "slug",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "description",
+                    "type": "string"
+                },
+                "parent_id": {
+                    "description": "parent_id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Users": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "name": {
+                    "description": "name",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "email",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "password",
+                    "type": "string"
+                },
+                "remember_token": {
+                    "description": "remember_token",
+                    "type": "string"
+                },
+                "stripe_id": {
+                    "description": "stripe_id",
+                    "type": "string"
+                },
+                "braintree_id": {
+                    "description": "braintree_id",
+                    "type": "string"
+                },
+                "paypal_email": {
+                    "description": "paypal_email",
+                    "type": "string"
+                },
+                "card_brand": {
+                    "description": "card_brand",
+                    "type": "string"
+                },
+                "card_last_four": {
+                    "description": "card_last_four",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

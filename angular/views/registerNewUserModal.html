@@ -1,0 +1,44 @@
+<div class="login-modal-container login-modal-container-bg text-center clearfix">
+    <div class="col-md-10 col-md-offset-1">
+        <form>
+
+
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2 form-group">
+                    <div class="input-group" style="margin: auto;display: block">
+                        <input type="text" ng-model="entity.first_name" class="form-control b-r-10"
+                               placeholder="First Name">
+                    </div>
+                </div>
+                <div class="col-md-8 col-md-offset-2 form-group">
+                    <div class="input-group" style="margin: auto;display: block">
+                        <input type="text" ng-model="entity.email" class="form-control b-r-10"
+                               placeholder="Email">
+                    </div>
+                </div>
+                <div class="col-md-8 col-md-offset-2 form-group">
+                    <div class="input-group" style="margin: auto;display: block">
+                        <input type="text" ng-model="entity.last_name" class="form-control b-r-10"
+                               placeholder="Last Name">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row m-b-10 text-center form-group">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="input-group" style="margin: auto;display: block">
+                        <input type="password" ng-model="entity.password" class="form-control b-r-10"
+                               placeholder="Password">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row m-b-10 text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <input type="submit" class="btn btn-primary bg-gold" ng-click="registerNewUser()" value="Register">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

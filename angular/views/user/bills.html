@@ -1,0 +1,263 @@
+<div class="row">
+    <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+        <div ng-include="'views/common/flashMessage.html'"></div>
+        <div ng-show="isLoading">
+            <div class="ibox-content">
+                <div class="spiner-example">
+                    <div class="sk-spinner sk-spinner-three-bounce">
+                        <div class="sk-bounce1"></div>
+                        <div class="sk-bounce2"></div>
+                        <div class="sk-bounce3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ibox-content b-none" ng-show="trial && !isLoading">
+            <form role="form" id="payment-form" novalidate name="paymentForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h2>
+                                Your monthly rate is :
+                                <span class="text-info">
+                                    {{paymentMethodDetails.plan[0].amount /100 | currency}}
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pull-right-md">
+                        <div class="form-group text-left">
+                            <button class="btn btn-primary" id="addCard" ng-click="updateModal()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Add Card
+                            </button>
+                            <button class="btn btn-primary" id="changeDefault" ng-click="changeDefaultModal()">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Change Default
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-10" ng-repeat="card in paymentMethodDetails.cards">
+                    <div class="payment-card">
+                        <!--<i class="fa fa-cc-visa payment-icon-big text-success"></i>-->
+                        <!--  <div>
+                         <i class="fa  fa-cc-visa payment-icon-big text-success"></i>
+                         <i class="fa  fa-cc-amex payment-icon-big text-success"></i>
+                         <i class="fa  fa-cc-mastercard payment-icon-big text-warning"></i>
+                         <i class="fa  fa-cc-discover payment-icon-big text-danger"></i>
+                     </div> -->
+                        <div class="row form-group">
+
+
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <big>
+                                    <i ng-if="card.brand == 'Visa'"
+                                       class="fa fa-2x fa-cc-visa payment-icon-big text-success"></i>
+                                    <i ng-if="card.brand == 'American Express'"
+                                       class="fa fa-2x fa-cc-amex payment-icon-big text-success"></i>
+                                    <i ng-if="card.brand == 'MasterCard'"
+                                       class="fa fa-2x fa-cc-mastercard payment-icon-big text-warning"></i>
+                                    <i ng-if="card.brand == 'Discover'"
+                                       class="fa  fa-2x fa-cc-discover payment-icon-big text-danger"></i>
+                                    <i ng-if="card.brand == 'Diners Club'"
+                                       class="fa fa-2x fa-cc-diners-club payment-icon-big text-success"
+                                       aria-hidden="true"></i>
+                                    <i ng-if="card.brand == 'JCB'"
+                                       class="fa fa-2x fa-cc-jcb payment-icon-big text-warning" aria-hidden="true"></i>
+
+                                    <a id="creditCard" href="" ng-click="updateModal(card.card_id)"> **** **** ****
+                                        <big>{{card.last4}} </big>
+                                    </a>
+                                </big>
+                            </div>
+
+
+                            <div class="col-md-9" style="display: inline-block;padding-top: 5px;">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-6 col-xs-4 p-t-2">
+                                        <button class="btn btn-danger btn-xs" id="deleteConfirmModal"
+                                                ng-disabled="card.default == 1" ng-click="deleteCard(card.card_id)">
+                                            Delete
+                                        </button>
+                                    </div>
+                                    <div class="col-md-1 col-sm-6 col-xs-4">
+                                        <span ng-if="card.default == 1" style="display: inline-block;padding: 6px 8px;"
+                                              class="label label-primary col-form-label col-form-label-lg">
+                                            <big>Default</big>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <strong>Expiry date:</strong>
+                                {{card.exp_month}}/{{card.exp_year}}
+                            </div>
+                        </div>
+                        <br>
+                        <hr ng-if="!$last">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row ibox-content" ng-hide="trial || isLoading">
+
+            <div class="col-md-6">
+                <div class="col-md-12" ng-if="!exist">
+                    <div class="form-group">
+                        <h1>Enter your billing information</h1>
+                    </div>
+                </div>
+
+                <form stripe:form="saveCustomer" name="checkoutForm">
+                    <div ng-if="!exist">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input id="number" ng-change="calculatePercentage()" class="form-control bill input-lg"
+                                       ng-model="paymentMethodDetails.last4"
+                                       type="text" size="20" name="number" payments-format="card"
+                                       placeholder="Card Number" payments-validate="card"
+                                       data-stripe="number" required/>
+                                <div class="m-t-xs"
+                                     ng-show="checkoutForm.number.$invalid && checkoutForm.number.$touched">
+                                    <small class="text-danger"
+                                           ng-show="checkoutForm.number.$invalid && checkoutForm.number.$touched">
+                                        Invalid card number!
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-4">
+                            <div class="form-group">
+                                <input type="text" ng-change="calculatePercentage()" class="form-control  bill input-lg"
+                                       ng-model="paymentMethodDetails.exp_month"
+                                       placeholder="MM" data-stripe="exp-month" min="1" max="12" minlength="1"
+                                       maxlength="2" name="month"
+                                />
+                                <div class="m-t-xs"
+                                     ng-show="checkoutForm.month.$invalid && checkoutForm.month.$touched">
+                                    <small class="text-danger"
+                                           ng-show="checkoutForm.month.$invalid && checkoutForm.month.$touched">
+                                        Invalid Expiration Month!
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-8">
+                            <div class="form-group">
+                                <input type="text" size="4" ng-change="calculatePercentage()"
+                                       class="form-control  bill input-lg" ng-model="paymentMethodDetails.exp_year"
+                                       placeholder="YYYY" data-stripe="exp-year" min="1" max="12" minlength="4"
+                                       maxlength="4" name="year"
+                                />
+                                <div class="m-t-xs" ng-show="checkoutForm.month.$invalid && checkoutForm.year.$touched">
+                                    <small class="text-danger"
+                                           ng-show="checkoutForm.year.$invalid && checkoutForm.year.$touched">
+                                        Enter Valid Year!
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-4">
+                            <div class="form-group">
+                                <input type="text" size="4" ng-change="calculatePercentage()" placeholder="CVC"
+                                       ng-model="paymentMethodDetails.cvc" class="form-control bill input-lg"
+                                       name="cvc" payments-format="cvc" payments-validate="cvc" data-stripe="cvc"
+                                       required/>
+                                <div class="m-t-xs" ng-show="checkoutForm.cvc.$invalid && checkoutForm.cvc.$touched">
+                                    <small class="text-danger"
+                                           ng-show="checkoutForm.cvc.$invalid && checkoutForm.cvc.$touched">
+                                        Invalid CV Code!
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-md-12 col-xs-12" ng-if="!exist">
+                            <div class="form-group">
+                                <input type="text" class="form-control bill input-lg" placeholder="Name on Card"
+                                       ng-model="name">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div>
+                        <div class="col-md-12 col-xs-12">
+                            <div class="form-group">
+                                <h1>Billing Address</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" ng-change="calculatePercentage()" class="form-control bill input-lg"
+                                       placeholder="Address" ng-model="currentUser.address_line_1">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-md-8 col-xs-8">
+                            <div class="form-group">
+                                <input type="text" ng-change="calculatePercentage()" class="form-control bill input-lg"
+                                       placeholder="Address Line 2" ng-model="currentUser.address_line_2">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <div class="form-group">
+                                <input type="text" ng-model="currentUser.suit" ng-change="alculatePercentage()"
+                                       class="form-control bill input-lg" placeholder="Suit/Appt">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-md-8 col-xs-8">
+                            <div class="form-group">
+                                <input type="text" ng-change="calculatePercentage()" class="form-control bill input-lg"
+                                       placeholder="City" ng-model="currentUser.city"
+                                       name="city">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <div class="form-group">
+                                <input type="text" ng-change="calculatePercentage()" class="form-control bill input-lg"
+                                       placeholder="State" ng-model="currentUser.state"
+                                       name="state">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <br>
+                        <div class="col-md-12 text-center">
+                            <div class="form-group">
+                                <button type="submit" id="submit" ng-if="!paymentMethodDetails.card_id"
+                                        class="btn btn-sucess">
+                                    <span class="billing-sub-span" style="margin-top: 10px">SUBMIT PAYMENT
+                                        <i class="fa fa-chevron-right p-l-10" aria-hidden="true"></i>
+                                    </span>
+
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

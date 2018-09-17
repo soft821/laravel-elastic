@@ -1,0 +1,11 @@
+{
+  "totalKroner": "Total Amount",
+  "activeCases": "Active Cases",
+  "numberActiveCases": "number of active cases",
+  "debtors": "Debtors",
+  "totalAmount": "Total Collected",
+  "sinceLastMonth": "updates every 30 minutes",
+  "cases": "cases",
+  "debtorUnits": "debtors",
+  "latestCaseActions": "Latest Case Actions"
+}

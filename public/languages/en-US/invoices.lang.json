@@ -1,0 +1,15 @@
+{
+  "currentPlanSelected": "Current Plan Selected",
+  "status": "Status",
+  "billed": "Billed",
+  "nextBillingDate": "Next Billing Date",
+  "cancel": "Cancel",
+  "invoice": "Invoice",
+  "paymentDescription": "Payment Description",
+  "subtotal": "Subtotal",
+  "discount": "Discount",
+  "date": "Date",
+  "view": "View",
+  "plan": "plan",
+  "creditPurchase": "credit purchase"
+}

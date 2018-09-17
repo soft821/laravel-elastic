@@ -1,0 +1,97 @@
+<div class="row border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>View Place</h2>
+    </div>
+    <div class="row">
+
+        <div class="ibox product-detail">
+            <map-box class="ibox-content">
+                <h1>{{entity.name}}</h1>
+                <mapbox ng-if="entity" mapboxgl gl-zoom="{ value: 15 }" gl-center="center" gl-markers="marker">
+
+                </mapbox>
+                <br/>
+                <br/>
+
+                Meta Data
+                <table>
+                    <th>
+                        Key
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                    <tr ng-repeat="md in entity.meta_data">
+                        <td>
+                            <span class="badge badge-success">{{md.key}}</span>
+                        </td>
+                        <td><span ng-bind-html="md.value"></span></td>
+
+                    </tr>
+                </table>
+                <br/>
+                <br/>
+                Meta
+                <table>
+                    <th>
+                        Key
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                    <tr ng-repeat="meta in entity.meta">
+                        <td>
+                            <span class="badge badge-success">{{meta.type}}</span>
+                        </td>
+                        <td>{{meta.value}}</td>
+
+                    </tr>
+                </table>
+                <br/>
+                <br/>
+
+
+
+                Categories
+                <table>
+                    <th>
+                        Key
+                    </th>
+                    <th>
+                        Value
+                    </th>
+
+                    <tr ng-repeat="(key, value) in entity.nlu[0].nlu.categories">
+                        <td>
+                            <span>{{key}}</span>
+                        </td>
+                        <td>
+                            <span>{{value}}</span>
+                        </td>
+
+                    </tr>
+                </table>
+
+                <table>
+                    <th>
+                        Key
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                    <tr ng-repeat="keywords in entity.nlu[0].nlu.keywords">
+                        <td>
+                            <span>{{keywords.text}}</span>
+                        </td>
+                        <td>
+                            <span>{{keywords.relevance}}</span>
+                        </td>
+                    </tr>
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+</div>

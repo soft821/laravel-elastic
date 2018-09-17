@@ -1,0 +1,16 @@
+# Created by .ignore support plugin
+.idea/*
+vendor/*
+storage/oauth-private.key
+storage/oauth-public.key
+storage/logs/laravel.log
+storage/framework/cache/*
+storage/framework/views/*
+storage/framework/sessions/*
+mysql/*
+px.sql
+.env
+bootstrap/cache/*
+bower_components/*
+node_modules/*
+
